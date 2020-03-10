@@ -192,9 +192,7 @@
                             "projects/admin-panel/core/tsconfig.lib.json",
                             "projects/admin-panel/core/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
@@ -232,13 +230,11 @@
                             "projects/admin-panel/components/tsconfig.lib.json",
                             "projects/admin-panel/components/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
         }
     },
-    "defaultProject": "admin-panel-generator"
+    "defaultProject": "@admin-panel/core"
 }

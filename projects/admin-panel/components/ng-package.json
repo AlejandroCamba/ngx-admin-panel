@@ -1,7 +1,11 @@
 {
-  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/admin-panel/components",
-  "lib": {
-    "entryFile": "src/public-api.ts"
-  }
+    "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../../dist/admin-panel/components",
+    "lib": {
+        "entryFile": "src/public-api.ts",
+        "umdModuleIds": {
+            "@admin-panel/components": "@admin-panel/components",
+            "@admin-panel/core": "@admin-panel/core"
+        }
+    }
 }

@@ -2,6 +2,7 @@
  * Public API Surface of components
  */
 
-export * from './lib/components.service';
-export * from './lib/components.component';
-export * from './lib/components.module';
+// tabs
+export * from './lib/tabs/tabs.component';
+export * from './lib/tabs/tab.directive';
+export * from './lib/tabs/tabs.module';
