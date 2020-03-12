@@ -32,13 +32,15 @@
 
 declare type ATabViewConfig = 'topLeft' | 'verticalLeft' | 'topCenter';
 
-type MenuStyle = {
+type ContainerBase = {
+    width: string;
+    height: string;
     backgroundColor: string;
     padding: string;
     margin: string;
 };
 
-type TabStyle = {
+type ElementBase = {
     width: string;
     height: string;
     backgroundColor: string;
@@ -48,7 +50,12 @@ type TabStyle = {
     border: string;
     fontStyle: string;
     fontSize: string;
+    color: string;
 };
+
+type MenuStyle = ContainerBase;
+
+type TabStyle = ElementBase & { active?: Partial<ElementBase> };
 
 declare type ATabViewStyle = {
     tabStyle: Partial<TabStyle>;

@@ -35,7 +35,11 @@ const BootstrapClass = {
                         *ngFor="let tab of tabs"
                         (click)="selectTab(tab)"
                         [class.active]="tab.active"
-                        [ngStyle]="tabCssStyle.tabStyle"
+                        [ngStyle]="
+                            tab.active
+                                ? mergeStyles(tabCssStyle.tabStyle, tabCssStyle.tabStyle.active)
+                                : tabCssStyle.tabStyle
+                        "
                     >
                         <a class="nav-link" href="#">{{ tab.title }}</a>
                     </li>
@@ -50,19 +54,7 @@ const BootstrapClass = {
 export class TabsComponent extends BlockComponent implements AfterContentInit, OnInit {
     @ContentChildren(TabDirective) tabs: QueryList<TabDirective>;
     @Input() public tabStyle: ATabViewConfig;
-    @Input() public tabCssStyle: ATabViewStyle = {
-        tabStyle: {
-            backgroundColor: 'black',
-            width: '100%',
-            padding: '0',
-            margin: '0'
-        },
-        menuStyle: {
-            backgroundColor: 'yellow',
-            padding: '0',
-            margin: '0'
-        }
-    };
+    @Input() public tabCssStyle: ATabViewStyle;
 
     public childPositionConfig = PositionFactory(new Grid());
     public tabsPosition: string;
@@ -91,5 +83,9 @@ export class TabsComponent extends BlockComponent implements AfterContentInit, O
 
     setStyle(...[menuStyle, tabStyle]: Array<object>): object {
         return { menuStyle, tabStyle };
+    }
+
+    mergeStyles(style1, style2): object {
+        return { ...style1, ...style2 };
     }
 }
