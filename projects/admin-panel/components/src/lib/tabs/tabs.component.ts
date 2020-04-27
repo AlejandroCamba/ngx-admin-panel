@@ -41,7 +41,16 @@ const BootstrapClass = {
                                 : tabCssStyle.tabStyle
                         "
                     >
-                        <a class="nav-link" href="#">{{ tab.title }}</a>
+                        <a
+                            class="nav-link"
+                            href="#"
+                            [ngStyle]="{
+                                color: tab.active
+                                    ? tabCssStyle.tabStyle.active.color
+                                    : tabCssStyle.tabStyle.color
+                            }"
+                            >{{ tab.title }}</a
+                        >
                     </li>
                 </ul>
             </div>

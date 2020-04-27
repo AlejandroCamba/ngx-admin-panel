@@ -50,6 +50,7 @@ type ElementBase = {
     border: string;
     fontStyle: string;
     fontSize: string;
+    fontColor: string;
     color: string;
 };
 

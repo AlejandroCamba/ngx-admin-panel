@@ -21,6 +21,11 @@ export * from './lib/state-service/a-state-service';
 // parent state implementer
 export * from './lib/admin-state-directive/a-admin-state.directive';
 
+//ARoleModule
+export * from './lib/a-role-module/a-role.module';
+export * from './lib/a-role-module/a-role.service';
+export * from './lib/a-role-module/pipe/can.pipe';
+
 // aux implementations
 
 export * from './lib/block/factories/index';

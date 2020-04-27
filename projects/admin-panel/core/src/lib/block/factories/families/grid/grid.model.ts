@@ -9,7 +9,8 @@ export class Grid implements BlockPosition<Grid, StructureType.grid> {
             grid: {
                 gridConfig: {
                     rowConfig: []
-                }
+                },
+                height: 'match-parent'
             }
         }
     ) {}

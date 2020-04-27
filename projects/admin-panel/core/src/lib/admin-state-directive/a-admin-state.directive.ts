@@ -8,8 +8,8 @@ export abstract class AAdminState<S = {}> {
     private myParentState$: Observable<any>;
 
     constructor(
-        @SkipSelf() @Optional() private parentInstanceService: AState<unknown>,
-        @Self() @Optional() private multipleInstaceService: AState<S>
+        @SkipSelf() @Optional() protected parentInstanceService: AState<unknown>,
+        @Self() @Optional() protected multipleInstaceService: AState<S>
     ) {
         this.myState$ = multipleInstaceService.getState() || of({} as S);
         this.myParentState$ = parentInstanceService ? parentInstanceService.getState() : of({});

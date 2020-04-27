@@ -13,7 +13,8 @@ export const GRID_CONFIG: Record<ATabViewConfig, Partial<Grid>> = {
                             defaultSize: 9
                         }
                     ]
-                }
+                },
+                height: 'match-parent'
             }
         }
     },
@@ -26,7 +27,8 @@ export const GRID_CONFIG: Record<ATabViewConfig, Partial<Grid>> = {
                             defaultSize: 12
                         }
                     ]
-                }
+                },
+                height: 'match-parent'
             }
         }
     },
@@ -37,12 +39,10 @@ export const GRID_CONFIG: Record<ATabViewConfig, Partial<Grid>> = {
                     rowConfig: [
                         {
                             defaultSize: 12
-                        },
-                        {
-                            defaultSize: 12
                         }
                     ]
-                }
+                },
+                height: 'match-parent'
             }
         }
     }

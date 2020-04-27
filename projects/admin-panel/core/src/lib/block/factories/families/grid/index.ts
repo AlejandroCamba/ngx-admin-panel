@@ -24,6 +24,13 @@ type RowConfig = {
     md?: Col;
     lg?: Col;
     xl?: Col;
+    offset?: {
+        xs?: ColSize;
+        sm?: ColSize;
+        md?: ColSize;
+        lg?: ColSize;
+        xl?: ColSize;
+    };
     align?: ColAlign;
 };
 
@@ -44,4 +51,5 @@ type ColAlign = 'align-self-start' | 'align-self-center' | 'align-self-end';
 export type GridValues = Record<
     'gridConfig',
     Justify & GridShortcut & Partial<RowAlign> & { rowConfig: Array<RowConfig> }
->; // ** Important ** defines values for grid content
+> & { height: 'match-parent' | 'wrap-content' };
+// ** Important ** defines values for grid content
