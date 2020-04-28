@@ -28,6 +28,8 @@ import { DropdownComponent } from './independent-module/components/dropdown.comp
 import { Chart } from 'chart.js';
 import { NextPageExample } from './zxcasca/next-page.component';
 import { EditFormComponent } from './zxcasca/edit-form.component';
+import { ChartBuilder, ChartTypes } from './graph-module/chart-builder.model';
+import { AdminChart } from './graph-module/chart.model';
 
 @Component({
     selector: 'app-root',
@@ -48,6 +50,13 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
      */
 
     public graphPositionConfig = PositionFactory(new Grid());
+
+
+    public chartBuilder = new ChartBuilder();
+    public chart: AdminChart;
+    public chart2: AdminChart;
+    
+
     public graph1Config = {
         id: '1',
         type: 'bar',
@@ -278,6 +287,88 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
 
     constructor(private httpClient: HttpClient) {
         super();
+
+        this.chart2 = new ChartBuilder().addConfiguration('dataset', {
+            config: [
+                {
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                    ]
+                },
+            ],
+        }).buildChart(ChartTypes.Pie);
+
+        this.chart = this.chartBuilder.addConfiguration('xAxes', {
+            config: {
+                xAxes: [
+                    {
+                        ticks: {
+                            display: false,
+                        },
+                        gridLines: {
+                            //color: [''],
+                            display: false,
+                        },
+                    },
+                ],
+            },
+        }).addConfiguration('yAxes', {
+            config: {
+                yAxes: [
+                    {
+                        gridLines: {
+                            color: [''],
+                            display: false,
+                        },
+                        ticks: {
+                            display: false, //this will remove only the label
+                        },
+                    },
+                ]
+            }
+        }).addConfiguration('dataset', {
+            config: [
+                    {
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderDash: [3],
+                        lineTension: 0,
+                        pointRadius: 0,
+                        fill: false,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                        ]
+                    },
+                ],
+            }).buildChart(ChartTypes.Linear);
+
+
         this.childPositionConfig.contentPosition = {
             grid: {
                 gridConfig: {

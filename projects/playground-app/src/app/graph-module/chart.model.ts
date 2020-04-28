@@ -1,25 +1,27 @@
+import { ConfigType } from './chart-builder.model';
+
 export enum ChartTypes {
-    Linear = 'Linear',
-    Bar = 'Bar',
-    Pie = 'Pie',
+    Linear = 'line',
+    Bar = 'bar',
+    Pie = 'pie',
 }
 
-export class Chart {
+export class AdminChart {
     private type: ChartTypes;
-    private configurations: Map<'dataset' | 'yAxes' | 'xAxes', {}>;
-    private chartJsConfig: {};
+    public chartJsConfig: {};
 
-    constructor(type: ChartTypes, configutarions: Map<'dataset' | 'yAxes' | 'xAxes', {}>) {
+    constructor(type: ChartTypes, configutarions: Map<ConfigType, {}>) {
+        this.type = type;
         this.chartJsConfig = {
             type: this.type,
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: configutarions.get('dataset'),
+                datasets: configutarions.get('dataset')['config'],
             },
             options: {
                 scales: {
-                    yAxes: configutarions.get('yAxes'),
-                    xAxes: configutarions.get('xAxes'),
+                    yAxes: configutarions.get('yAxes') ? configutarions.get('yAxes')['config']['yAxes'] : [],
+                    xAxes: configutarions.get('xAxes') ? configutarions.get('xAxes')['config']['xAxes'] : [],
                 },
                 legend: {
                     display: false,
@@ -33,8 +35,6 @@ export class Chart {
                 },
             },
         };
-
         this.type = type;
-        this.configurations = configutarions;
     }
 }

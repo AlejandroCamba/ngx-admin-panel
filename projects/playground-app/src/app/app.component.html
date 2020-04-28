@@ -60,10 +60,11 @@
     <div ATab [tabTitle]="'Graficos'">
         <h1 class="top-message">Ejemplo de graficos</h1>
         <div block [config]="graphPositionConfig" >
-            <admin-chart [graphConfig]="graph1Config"></admin-chart>
-            <admin-chart [graphConfig]="graph2Config"></admin-chart>
+            <admin-chart [id]="1" [chartConfig]="chart"></admin-chart>
+            <admin-chart [id]="2" [chartConfig]="chart2"></admin-chart>
+            <!-- <admin-chart [graphConfig]="graph2Config"></admin-chart>
             <admin-chart [graphConfig]="graph3Config"></admin-chart>
-            <admin-chart [graphConfig]="graph4Config"></admin-chart>
+            <admin-chart [graphConfig]="graph4Config"></admin-chart> -->
         </div>
     </div>
 </ATabMenu>

@@ -1,4 +1,4 @@
-export class XAxisConfig {
+export interface XAxisConfig {
     config: {
         xAxes: [
             {
@@ -6,7 +6,7 @@ export class XAxisConfig {
                     display: boolean
                 },
                 gridLines: {
-                    //color: [''],
+                    color?: string[],
                     display: boolean
                 },
             },
@@ -14,15 +14,15 @@ export class XAxisConfig {
     };
 }
 
-export class YAxisConfig {
+export interface YAxisConfig {
     config: {
-        xAxes: [
+        yAxes: [
             {
                 ticks: {
                     display: boolean;
                 };
                 gridLines: {
-                    //color: [''],
+                    color: string[],
                     display: boolean;
                 };
             }
@@ -30,12 +30,52 @@ export class YAxisConfig {
     };
 }
 
-export class DataSetConfig {
+type LineData = {
+    data: number[]
+    backgroundColor?: string[];
+    borderColor?: string[];
+    borderWidth?: number;
+    label?: string;
+    borderDash: number[];
+    lineTension: number,
+    pointRadius: number,
+    fill: boolean | string,
+}
+
+
+export interface BarOptionsConfig {
     config: {
-        label?: string;
-        data: number[];
-        backgroundColor?: string[];
-        borderColor?: string[];
-        borderWidth?: number;
+        barPercentage?: number,
+        categoryPercentage?: number,
+        barThickness?: number | string,
+        maxBarThickness?: number
     };
+}
+
+type BarData = { 
+    data: number[]
+    backgroundColor?: string[];
+    borderColor?: string[];
+    borderWidth?: number;
+}
+
+
+export interface PieOptionsConfig {
+    config: {
+        cutoutPercentage,
+        rotation,
+        circumference,
+    };
+}
+
+
+type PieData = {
+    data: number[]
+    backgroundColor?: string[];
+    borderColor?: string[];
+    borderWidth?: number;
+}
+
+export interface DataSetConfig {
+    config:  LineData[] | PieData[] | BarData[];
 }

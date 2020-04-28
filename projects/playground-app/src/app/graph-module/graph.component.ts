@@ -5,12 +5,14 @@ import {
     ViewChild,
     ViewContainerRef,
     ElementRef,
-    AfterViewInit
+    AfterViewInit,
 } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ChartBuilder } from './chart-builder.model';
+import { AdminChart } from './chart.model';
 
 interface DataSet {
-    label?: string,
+    label?: string;
     data: number[];
     backgroundColor?: string[];
     borderColor?: string[];
@@ -32,60 +34,18 @@ interface GraphConfig {
 
 @Component({
     selector: 'admin-chart',
-    template: `
-        <canvas [attr.id]="graphConfig.id" width="400" height="400"></canvas>
-    `,
-    styles: [``]
+    template: ` <canvas [attr.id]="id" width="400" height="400"></canvas> `,
+    styles: [``],
 })
 export class GraphComponent implements OnInit, AfterViewInit {
-    @Input() graphConfig: GraphConfig;
-    
+    @Input() id: string;
+    @Input() chartConfig: AdminChart;
+
     constructor() {}
 
     ngAfterViewInit() {
-        const { data } = this.graphConfig;
-
-        new Chart(document.getElementById(this.graphConfig.id), {
-            type: this.graphConfig.type,
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: data
-            },
-            options: {
-                scales: {
-                    yAxes: [
-                        {
-                            gridLines: {
-                                //color: [''],
-                                display: false
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                display: false //this will remove only the label
-                            }
-                        }
-                    ],xAxes: [{
-                        ticks: {
-                            display: false
-                        },
-                        gridLines: {
-                            //color: [''],
-                            display: false
-                        }
-                    }],
-                },
-                legend: {
-                    display: false
-                },
-                tooltips: {
-                    callbacks: {
-                       label: function(tooltipItem) {
-                              return tooltipItem.yLabel;
-                       }
-                    }
-                }
-            }
-        });
+        console.log('aquiii', {...this.chartConfig.chartJsConfig})
+        new Chart(document.getElementById(this.id), {...this.chartConfig.chartJsConfig})
     }
 
     ngOnInit() {}
