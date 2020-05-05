@@ -1,15 +1,26 @@
-import { Directive, ElementRef, Renderer2, Output, EventEmitter } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer2,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Directive({
-    selector: 'bla'
+  selector: 'bla'
 })
 export abstract class IndependentComponent {
-    abstract name: string;
-    abstract value: unknown;
+  abstract name: string;
+  abstract value: unknown;
 
-    containerRef: ElementRef;
-    elRef: ElementRef;
+  containerRef: ElementRef;
+  elRef: ElementRef;
 
-    protected abstract childValueEmitter: (...args) => void;
-    @Output() public abstract childValueChanged: EventEmitter<unknown>;
+  protected abstract childValueEmitter: (...args) => void;
+  @Output() public abstract childValueChanged: EventEmitter<unknown>;
+
+  style: any = { style: null };
+  setStyle(style) {
+    this.style = { ...this.style, ...style };
+  }
 }

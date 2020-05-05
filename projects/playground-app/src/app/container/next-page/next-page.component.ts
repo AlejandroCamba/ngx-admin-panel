@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ElementRef, Output, EventEmitter, ContentChil
     selector: 'next-page',
     template: `
         <div class="mt-3 mb-5">
-            <default-button [value]="'Regresar'" [handleClick]="handleClick"></default-button>
+            <default-button [value]="'Regresar'" [handleClick]="handleClick" [style]="nextPageStyle"></default-button>
         </div>
         <ng-content>
         </ng-content>
@@ -12,23 +12,14 @@ import { Component, OnInit, Input, ElementRef, Output, EventEmitter, ContentChil
     styles: [``],
     providers: []
 })
-export class NextPageComponent implements OnInit, AfterContentInit, AfterViewInit {
+export class NextPageComponent {
     @Output() returnToMain = new EventEmitter<boolean>();
-   
-    constructor(private r2: Renderer2) {
-      
+    
+    nextPageStyle = {
+        display: 'block'
     }
 
-    ngOnInit() {
-      
-    }
-
-    ngAfterViewInit() {
-
-    }
-
-    ngAfterContentInit() {
-    }
+    constructor() {}
 
     handleClick = () => {
       this.returnToMain.emit(true);

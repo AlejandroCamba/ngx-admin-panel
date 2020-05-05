@@ -200,6 +200,9 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
                     mutate: true, //    input/dropdown,
                     into: InputComponent,
                     onUpdate: (id: string, value: object) => {},
+                    style: {
+                        fontWeight: 900
+                    }
                 },
                 {
                     mutate: true,
@@ -208,6 +211,9 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
                     onUpdate: (id: string, value: object) => {
                         console.log('id', id, 'obj', value);
                     },
+                    style: {
+                        color: 'yellow'
+                    }
                 },
                 {
                     mutate: 'none',
@@ -216,6 +222,10 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
                     mutate: 'none',
                     onClick: 'onDelete',
                     onDelete: () => {},
+
+                    style: {
+                        fontSize: 'yellow'
+                    }
                 },
                 {
                     mutate: 'none',
@@ -230,6 +240,11 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
                             { name: 'status', values: ['APROBADO', 'PREAPROBADO', 'RECHAZADO'] },
                         ],
                     },
+                    style: {
+                        backgroundColor: 'transparent',
+                        color: 'black',
+                        borderColor: 'black',
+                    }
                 },
             ],
             columnType: [
@@ -417,7 +432,7 @@ export class AppComponent extends BlockComponent implements AfterViewInit, OnIni
     catchDropdown(event) {}
 
     test(event) {
-        console.log('evt', event);
+        console.log(event)
         this.dataSubject.next(
             this.httpClient
                 .get(

@@ -21,9 +21,9 @@ export abstract class BlockComponent {
 
                 // configuration of wrapper classes
                 if(blockRef.config.contentPosition.grid.height === 'match-parent') {
-                    wrapper.classList.add(...['container', 'p-0', 'h-100']);
+                    wrapper.classList.add(...['container-fluid', 'p-0', 'h-100']);
                 } else {
-                    wrapper.classList.add(...['container', 'p-0']);
+                    wrapper.classList.add(...['container-fluid', 'p-0']);
                 }
 
                 this.parentBlock.nativeElement.parentNode.insertBefore(

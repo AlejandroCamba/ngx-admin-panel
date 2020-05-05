@@ -30,6 +30,7 @@ export class FilterAdapterComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.childrenComponents.forEach(component => {
       component.childValueChanged.subscribe((change) => {
+        alert('catcheadoooo')
         this.filterChanged.emit(change)
       })
     })

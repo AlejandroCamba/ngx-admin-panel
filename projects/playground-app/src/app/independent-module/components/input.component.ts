@@ -7,10 +7,10 @@ import { FormGroup } from '@angular/forms';
     selector: 'default-input',
     template: `
       <ng-container [formGroup]="formGroup" *ngIf="formGroup; else defaultinput">
-        <input class="form-control" type="text" formControlName="{{name}}">    
+        <input class="form-control" type="text" formControlName="{{name}}" [ngStyle]="style">    
       </ng-container>
       <ng-template #defaultinput>
-        <input [(ngModel)]="value" placeholder="{{placeholder}}" (ngModelChange)="childValueEmitter()" (blur)="handleBlur()" >    
+        <input [(ngModel)]="value" placeholder="{{placeholder}}" (ngModelChange)="childValueEmitter()" (blur)="handleBlur()" [ngStyle]="style">    
       </ng-template>
     `,
     styles: [``],

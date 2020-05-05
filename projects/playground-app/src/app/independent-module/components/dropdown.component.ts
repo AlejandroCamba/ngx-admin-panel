@@ -11,6 +11,7 @@ import { FormAdapterComponent } from '../adapters/form-adapter.component';
                 class="custom-select"
                 id="inlineFormCustomSelectPref"
                 formControlName="{{ name }}"
+                [ngStyle]="style"
             >
                 <option selected value="">Choose...</option>
                 <option *ngFor="let option of value">{{ option }}</option>
@@ -23,8 +24,8 @@ import { FormAdapterComponent } from '../adapters/form-adapter.component';
                 [ngModel]="selectedValue"
                 (ngModelChange)="childValueEmitter($event)"
             >
-                <option selected disabled value="">Choose...</option>
-                <option *ngFor="let option of value">{{ option }}</option>
+                <option selected disabled value="" [ngStyle]="style.style">Choose...</option>
+                <option *ngFor="let option of value" [ngStyle]="style.style">{{ option }}</option>
             </select>
         </ng-template>
     `,
@@ -33,10 +34,11 @@ import { FormAdapterComponent } from '../adapters/form-adapter.component';
 })
 export class DropdownComponent extends IndependentComponent  {
     @Input() value: string[];
+    @Input() name: string;
+
     @Output() childValueChanged = new EventEmitter();
 
     public formGroup: FormGroup;
-    public name: string;
     public selectedValue;
     public dirty: boolean;
     constructor(@Optional() private _fa: FormAdapterComponent) {
