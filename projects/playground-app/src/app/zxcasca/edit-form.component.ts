@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
-import { NextPageAbstract } from '../container/next-page/next-page-abstract.component';
+import { NextPageAbstract } from '@admin-panel/components';
 import {
     ValidatorRecipe,
     ValidationOptions,
-} from '../independent-module/adapters/form-adapter.component';
+} from '@admin-panel/components';
 import {
     AAdminState,
     AState,

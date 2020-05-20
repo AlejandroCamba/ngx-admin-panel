@@ -7,7 +7,7 @@
 import { Input, Directive, ElementRef } from '@angular/core';
 
 @Directive({
-    selector: '[ATab]'
+    selector: '[admin-tab]'
 })
 export class TabDirective {
     @Input('tabTitle') title: string;

@@ -1,0 +1,3 @@
+<admin-tab-menu [tabStyle]="'verticalLeft'" [tabCssStyle]="tabCssStyle">
+</admin-tab-menu>
+

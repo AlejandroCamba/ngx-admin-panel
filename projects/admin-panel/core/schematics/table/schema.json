@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsTable",
+  "title": "My Table Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the component.",
+      "type": "string"
+    },
+    "adminView": {
+      "type": "string",
+      "description": "Name of parent tab view."
+    },
+    "tabName": {
+      "type": "string",
+      "description": "Name of tab to inject."
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the service.",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+   },
+  "required": [
+    "name"
+  ]
+}

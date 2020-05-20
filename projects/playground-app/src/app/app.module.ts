@@ -18,11 +18,8 @@ import {
 
 import { ModuleBModule } from './module-b/module-b.module';
 import { AModule } from './module-a/module-a.module';
-import { TableModule } from './table-module/table.module';
-import { IndependentModule } from './independent-module/independent.module';
-import { GraphModule } from './graph-module/graph.module';
+import { IndependentModule, TableModule, GraphModule, NextPageComponent } from  '@admin-panel/components';
 import { Observable } from 'rxjs';
-import { NextPageComponent } from './container/next-page/next-page.component';
 import { NextPageExample } from './zxcasca/next-page.component';
 import { EditFormComponent } from './zxcasca/edit-form.component';
 
@@ -38,7 +35,7 @@ export class CustomInterceptor implements HttpInterceptor {
 }
 
 @NgModule({
-    declarations: [AppComponent, NextPageComponent, NextPageExample, EditFormComponent], /* PASA A UN MODULO el nextpagecomponent* */
+    declarations: [AppComponent, NextPageExample, EditFormComponent], /* PASA A UN MODULO el nextpagecomponent* */
     imports: [
         HttpClientModule,
         GraphModule,

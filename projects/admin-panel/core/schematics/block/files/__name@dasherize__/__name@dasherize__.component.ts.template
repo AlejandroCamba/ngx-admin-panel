@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+import { BlockComponent, Grid, PositionFactory } from '@admin-panel/core';
+
+@Component({
+  selector: 'admin-<%= dasherize(name) %>',
+  templateUrl: '<%= dasherize(name) %>.component.html'
+})
+export class <%= classify(name) %>Component extends BlockComponent {
+  public blockConfig = PositionFactory(new Grid());
+}

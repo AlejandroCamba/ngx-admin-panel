@@ -1,0 +1,2 @@
+<admin-table [tableConfig]="<%= camelize(name) %>TableConfig" [data$]="<%= camelize(name) %>Data">
+</admin-table>

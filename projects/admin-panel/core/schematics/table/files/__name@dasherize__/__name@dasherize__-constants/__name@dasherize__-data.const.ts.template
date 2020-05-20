@@ -1,0 +1,74 @@
+import {
+  DropdownComponent,
+  InputComponent,
+  LabelComponent,
+  ButtonComponent,
+} from '@admin-panel/components';
+
+export const <%= underscore(name) %>_data =  {
+  data: undefined,
+  workflow: {
+    columns: [
+      {
+        mutate: true, //    input/dropdown,
+        into: InputComponent,
+        onUpdate: (id: string, value: object) => {},
+        style: {
+          fontWeight: 900
+        }
+      },
+      {
+        mutate: true,
+        into: DropdownComponent,
+        values: ['aprobado', 'rechazado'],
+        onUpdate: (id: string, value: object) => {
+          console.log('id', id, 'obj', value);
+        },
+        style: {
+          color: 'yellow'
+        }
+      },
+      {
+        mutate: 'none'
+      },
+      {
+        mutate: 'none',
+        onClick: 'onDelete',
+        onDelete: () => {},
+
+        style: {
+          fontSize: 'yellow'
+        }
+      },
+      {
+        mutate: 'none',
+        onClick: 'onNextPage',
+        nextPage: {
+          /* component: EditFormComponent, */
+          withInputValues: [
+            {
+              name: 'name'
+            },
+            { name: 'producto' },
+            {
+              name: 'status',
+              values: ['APROBADO', 'PREAPROBADO', 'RECHAZADO']
+            }
+          ]
+        },
+        style: {
+          backgroundColor: 'transparent',
+          color: 'black',
+          borderColor: 'black'
+        }
+      }
+    ],
+    columnType: [
+      LabelComponent,
+      LabelComponent,
+      LabelComponent,
+      ButtonComponent,
+      ButtonComponent
+    ]
+  }
+};

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
-import { NextPageAbstract } from '../container/next-page/next-page-abstract.component';
+import { NextPageAbstract } from '@admin-panel/components';
 
 @Component({
     selector: 'next-page-example',
