@@ -1,0 +1,17 @@
+I"Y<p>ChatApp introduces media support! Send images, videos and documents to your contacts.</p>
+
+<p><strong>Features:</strong></p>
+
+<ul>
+  <li>Image support</li>
+  <li>Video support</li>
+  <li>Document support</li>
+</ul>
+
+<p><strong>Fixes:</strong></p>
+
+<ul>
+  <li>Edge case contact syncing issue</li>
+  <li>All memory leaks obliterated</li>
+</ul>
+:ET

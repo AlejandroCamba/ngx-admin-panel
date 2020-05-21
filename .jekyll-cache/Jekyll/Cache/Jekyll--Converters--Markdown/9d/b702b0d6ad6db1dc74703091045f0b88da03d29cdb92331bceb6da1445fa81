@@ -1,0 +1,16 @@
+I"Š<p>This release fixes a few minor issues reported by users. Weâ€™ve also made a few quality of life improvements.</p>
+
+<p><strong>Features:</strong></p>
+
+<ul>
+  <li>Streamlined access to contact details</li>
+  <li>Better sort order for archived messages</li>
+</ul>
+
+<p><strong>Fixes:</strong></p>
+
+<ul>
+  <li>Input sometimes getting stuck</li>
+  <li>One more memory leak obliterated</li>
+</ul>
+:ET
