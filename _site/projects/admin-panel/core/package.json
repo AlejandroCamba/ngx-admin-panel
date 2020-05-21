@@ -3,11 +3,11 @@
     "version": "0.0.1",
     "scripts": {
         "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-        "copy:schemas": "gcp --parents schematics/*/schema.json ../../../dist/admin-panel/core/",
-        "copy:files": "gcp --parents -R schematics/*/files/** ../../../dist/admin-panel/core/",
-        "copy:collection": "gcp schematics/collection.json ../../../dist/admin-panel/core/schematics/collection.json",
+        "copy:schemas": "cp --parents schematics/*/schema.json ../../../dist/admin-panel/core/",
+        "copy:files": "cp --parents -R schematics/*/files/** ../../../dist/admin-panel/core/",
+        "copy:collection": "cp schematics/collection.json ../../../dist/admin-panel/core/schematics/collection.json",
         "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
-    },
+      },
     "peerDependencies": {
         "@angular/common": "^9.0.0-rc.12",
         "@angular/core": "^9.0.0-rc.12",

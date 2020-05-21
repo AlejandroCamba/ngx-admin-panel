@@ -1,0 +1,48 @@
+<ATabMenu [tabStyle]="'verticalLeft'" [tabCssStyle]="tabCssStyle">
+    <div ATab [tabTitle]="'Formularios'">
+        <h1 class="top-message">Ejemplo de formulario</h1>
+        <admin-form block [config]="childPositionConfig" (submitFormValue)="catchFormValue($event)">
+            <div block [config]="subFormRow">
+                <form-adapter [name]="'Name'" [validators]="form.name">
+                    <default-input></default-input>
+                </form-adapter>
+                <form-adapter [name]="'Apellido'" [validators]="form.lastName">
+                    <default-input></default-input>
+                </form-adapter>
+            </div>
+            <form-adapter [name]="'Email'" [validators]="form.email">
+                <default-input></default-input>
+            </form-adapter>
+            <form-adapter [name]="'Contrasena'" [validators]="form.password">
+                <default-input></default-input>
+            </form-adapter>
+            <form-adapter [name]="'Sexo'" [validators]="form.sex">
+                <default-dropdown [value]="['M', 'F']"></default-dropdown>
+            </form-adapter>
+            <div block [config]="submitButtonConfig">
+                <default-button [value]="'Enviar'" type="'submit'"></default-button>
+            </div>
+        </admin-form>
+    </div>
+    <div ATab [tabTitle]="'Tablas'">
+        <h1 class="top-message">Ejemplo de tablas</h1>
+        <ATable [tableConfig]="table" [data$]="data">
+            <filter-adapter header #header (filterChanged)="test($event)">
+                <default-input [name]="'status'" [placeholder]="'Status'"></default-input>
+            </filter-adapter>
+            <filter-adapter header #header  (filterChanged)="test($event)">
+                <default-dropdown  [name]="'status'"  [value]="['APROBADO', 'RECHAZADO']"></default-dropdown>
+            </filter-adapter>
+            <div footer>footer</div>
+            <pagination footer (filterChanged)="test($event)" [pages]="pagination | async">footer</pagination>
+        </ATable>
+    </div>
+    <div ATab [tabTitle]="'Graficos'">
+        <h1 class="top-message">Ejemplo de graficos</h1>
+        <div block [config]="graphPositionConfig" >
+            <admin-chart [id]="1" [chartConfig]="chart"></admin-chart>
+            <admin-chart [id]="2" [chartConfig]="chart2"></admin-chart>
+        </div>
+    </div>
+</ATabMenu>
+<!-- <div *ngIf="'test1' | can: 'doSomething2'"><p>parrafo</p></div> -->

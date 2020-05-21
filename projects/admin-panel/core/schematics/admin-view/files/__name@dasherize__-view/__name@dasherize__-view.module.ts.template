@@ -6,6 +6,7 @@ import {
   TableModule,
   IndependentModule
 } from "@admin-panel/components";
+import { BlockModule } from '@admin-panel/core';
 
 @NgModule({
   declarations: [<%= classify(name) %>ViewComponent],
