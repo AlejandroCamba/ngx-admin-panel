@@ -1,5 +1,5 @@
-<ATabMenu [tabStyle]="'verticalLeft'" [tabCssStyle]="tabCssStyle">
-    <div ATab [tabTitle]="'Formularios'">
+<admin-tab-menu [tabStyle]="'verticalLeft'" [tabCssStyle]="tabCssStyle">
+    <div admin-tab [tabTitle]="'Formularios'">
         <h1 class="top-message">Ejemplo de formulario</h1>
         <admin-form block [config]="childPositionConfig" (submitFormValue)="catchFormValue($event)">
             <div block [config]="subFormRow">
@@ -24,9 +24,9 @@
             </div>
         </admin-form>
     </div>
-    <div ATab [tabTitle]="'Tablas'">
+    <div admin-tab [tabTitle]="'Tablas'">
         <h1 class="top-message">Ejemplo de tablas</h1>
-        <ATable [tableConfig]="table" [data$]="data">
+        <admin-table [tableConfig]="table" [data$]="data">
             <filter-adapter header #header (filterChanged)="test($event)">
                 <default-input [name]="'status'" [placeholder]="'Status'"></default-input>
             </filter-adapter>
@@ -35,14 +35,14 @@
             </filter-adapter>
             <div footer>footer</div>
             <pagination footer (filterChanged)="test($event)" [pages]="pagination | async">footer</pagination>
-        </ATable>
+        </admin-table>
     </div>
-    <div ATab [tabTitle]="'Graficos'">
+    <div admin-tab [tabTitle]="'Graficos'">
         <h1 class="top-message">Ejemplo de graficos</h1>
         <div block [config]="graphPositionConfig" >
             <admin-chart [id]="1" [chartConfig]="chart"></admin-chart>
             <admin-chart [id]="2" [chartConfig]="chart2"></admin-chart>
         </div>
     </div>
-</ATabMenu>
+</admin-tab-menu>
 <!-- <div *ngIf="'test1' | can: 'doSomething2'"><p>parrafo</p></div> -->

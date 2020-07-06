@@ -20,9 +20,6 @@ import { ModuleBModule } from './module-b/module-b.module';
 import { AModule } from './module-a/module-a.module';
 import { IndependentModule, TableModule, GraphModule, NextPageComponent } from  '@admin-panel/components';
 import { Observable } from 'rxjs';
-import { NextPageExample } from './zxcasca/next-page.component';
-import { EditFormComponent } from './zxcasca/edit-form.component';
-
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -35,7 +32,7 @@ export class CustomInterceptor implements HttpInterceptor {
 }
 
 @NgModule({
-    declarations: [AppComponent, NextPageExample, EditFormComponent], /* PASA A UN MODULO el nextpagecomponent* */
+    declarations: [AppComponent], /* PASA A UN MODULO el nextpagecomponent* */
     imports: [
         HttpClientModule,
         GraphModule,
@@ -50,7 +47,7 @@ export class CustomInterceptor implements HttpInterceptor {
         TableModule,
         IndependentModule,
     ],
-    entryComponents: [NextPageExample],
+    entryComponents: [],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

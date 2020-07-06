@@ -55,8 +55,6 @@ import {
   of
 } from 'rxjs';
 import { Chart } from 'chart.js';
-import { NextPageExample } from './zxcasca/next-page.component';
-import { EditFormComponent } from './zxcasca/edit-form.component';
 
 @Component({
   selector: 'app-root',
@@ -256,19 +254,6 @@ export class AppComponent extends BlockComponent
         {
           mutate: 'none',
           onClick: 'onNextPage',
-          nextPage: {
-            component: EditFormComponent,
-            withInputValues: [
-              {
-                name: 'name'
-              },
-              { name: 'producto' },
-              {
-                name: 'status',
-                values: ['APROBADO', 'PREAPROBADO', 'RECHAZADO']
-              }
-            ]
-          },
           style: {
             backgroundColor: 'transparent',
             color: 'black',
