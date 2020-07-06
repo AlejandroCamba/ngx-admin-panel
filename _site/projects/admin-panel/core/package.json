@@ -1,0 +1,32 @@
+{
+    "name": "@admin-panel/core",
+    "version": "0.0.1",
+    "scripts": {
+        "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+        "copy:schemas": "cp --parents schematics/*/schema.json ../../../dist/admin-panel/core/",
+        "copy:files": "cp --parents -R schematics/*/files/** ../../../dist/admin-panel/core/",
+        "copy:collection": "cp schematics/collection.json ../../../dist/admin-panel/core/schematics/collection.json",
+        "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+      },
+    "peerDependencies": {
+        "@angular/common": "^9.0.0-rc.12",
+        "@angular/core": "^9.0.0-rc.12",
+        "tslib": "^1.10.0"
+    },
+    "dependencies": {
+        "@casl/ability": "^3.4.0",
+        "@casl/angular": "^3.0.6",
+        "@swimlane/ngx-datatable": "^16.0.3",
+        "bootstrap": "^4.4.1",
+        "chart.js": "^2.9.3",
+        "cpx": "^1.5.0",
+        "datatables.net-bs4": "^1.10.20",
+        "datatables.net-colreorder-bs4": "^1.5.2",
+        "datatables.net-responsive-bs4": "^2.2.3",
+        "ngx-custom-validators": "^9.0.1",
+        "popper.js": "^1.16.1",
+        "rxjs": "~6.5.4",
+        "directory-tree": "^2.2.4"
+    },
+    "schematics": "./schematics/collection.json"
+}

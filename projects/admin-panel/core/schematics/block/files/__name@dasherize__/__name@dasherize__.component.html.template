@@ -1,0 +1,5 @@
+<div block [config]="blockConfig">
+  <div class="border">block one</div>
+  <div class="border">block two</div>
+  <div class="border">block three</div>
+</div>
