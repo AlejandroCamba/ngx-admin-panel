@@ -3,44 +3,6 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "admin-panel-generator": {
-            "projectType": "library",
-            "root": "projects/admin-panel-generator",
-            "sourceRoot": "projects/admin-panel-generator/src",
-            "prefix": "lib",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "projects/admin-panel-generator/tsconfig.lib.json",
-                        "project": "projects/admin-panel-generator/ng-package.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "tsConfig": "projects/admin-panel-generator/tsconfig.lib.prod.json"
-                        }
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/admin-panel-generator/src/test.ts",
-                        "tsConfig": "projects/admin-panel-generator/tsconfig.spec.json",
-                        "karmaConfig": "projects/admin-panel-generator/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/admin-panel-generator/tsconfig.lib.json",
-                            "projects/admin-panel-generator/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
-                    }
-                }
-            }
-        },
         "playground-app": {
             "projectType": "application",
             "schematics": {
