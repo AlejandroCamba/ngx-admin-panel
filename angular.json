@@ -7,7 +7,7 @@
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "sass"
+                    "style": "scss"
                 }
             },
             "root": "projects/playground-app",
@@ -30,7 +30,9 @@
                         "styles": [
                             "projects/playground-app/src/styles.sass",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"
+                            "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+                            "node_modules/@nebular/theme/styles/prebuilt/default.css"
+
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.js",

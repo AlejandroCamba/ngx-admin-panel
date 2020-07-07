@@ -18,6 +18,10 @@
         "datatables.net-responsive-bs4": "^2.2.3",
         "ngx-custom-validators": "^9.0.1",
         "popper.js": "^1.16.1",
-        "rxjs": "~6.5.4"   
+        "rxjs": "~6.5.4",
+        "@nebular/auth": "5.0.0",
+        "@nebular/eva-icons": "5.0.0",
+        "@nebular/security": "5.0.0",
+        "@nebular/theme": "5.0.0"
     }
 }

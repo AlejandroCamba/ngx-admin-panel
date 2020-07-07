@@ -55,3 +55,16 @@ export * from './lib/table-module/table.component';
  export * from './lib/graph-module/chart.model';
  export * from './lib/graph-module/graph.component';
  
+
+
+
+
+
+
+
+
+
+ // NEW VERSIONNNNNNNN
+
+ export * from './lib/admin-app/admin-app.module';
+ export * from './lib/admin-app/admin-app.abstract';
