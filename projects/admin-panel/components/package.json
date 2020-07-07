@@ -2,10 +2,9 @@
     "name": "@admin-panel/components",
     "version": "0.0.1",
     "peerDependencies": {
-        "@angular/common": "^9.0.0-rc.12",
-        "@angular/core": "^9.0.0-rc.12",
-        "tslib": "^1.10.0"
-    },
+        "@angular/common": "^9.0.4",
+        "@angular/core": "^9.0.4"
+},
     "dependencies": {
         "@casl/ability": "^3.4.0",
         "@casl/angular": "^3.0.6",
@@ -23,5 +22,6 @@
         "@nebular/eva-icons": "5.0.0",
         "@nebular/security": "5.0.0",
         "@nebular/theme": "5.0.0"
-    }
+    ,    "tslib": "^2.0.0"
+}
 }

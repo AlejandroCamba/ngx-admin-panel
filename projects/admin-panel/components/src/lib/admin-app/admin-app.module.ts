@@ -8,14 +8,32 @@ import { OneColumnLayoutComponent } from '../@theme/layouts/one-column/one-colum
 
 import { ThemeModule } from '../@theme/theme.module';
 
+import {
+  NbChatModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbMenuModule,
+  NbSidebarModule,
+  NbToastrModule,
+  NbWindowModule,
+} from '@nebular/theme';
+
 @NgModule({
   imports: [
     AdminAppRoutingModule,
+    NbChatModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbSidebarModule.forRoot(),
+    NbToastrModule.forRoot(),
+    NbWindowModule.forRoot(),
     ThemeModule.forRoot(),
   ],
   declarations: [AdminMainDirective, AdminAppComponent],
   entryComponents: [AdminAppComponent],
-  providers: [LayoutService]
+  providers: [LayoutService],
+  exports: [AdminMainDirective]
 })
-export class PagesModule {
+export class AdminAppModule {
 }

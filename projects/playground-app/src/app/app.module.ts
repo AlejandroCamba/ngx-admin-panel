@@ -7,54 +7,23 @@ import { AppComponent } from './app.component';
 import { TabsModule, TabsComponent, TabDirective } from '@admin-panel/components';
 import { BlockModule, ARoleModule } from '@admin-panel/core';
 
-import {
-    HttpClientModule,
-    HttpRequest,
-    HttpHandler,
-    HttpEvent,
-    HttpInterceptor,
-    HTTP_INTERCEPTORS,
-} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-import { ModuleBModule } from './module-b/module-b.module';
-import { AModule } from './module-a/module-a.module';
-import { IndependentModule, TableModule, GraphModule, NextPageComponent } from  '@admin-panel/components';
-import { Observable } from 'rxjs';
-@Injectable()
-export class CustomInterceptor implements HttpInterceptor {
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        request = request.clone({
-            withCredentials: true,
-        });
-
-        return next.handle(request);
-    }
-}
+import { AdminAppModule } from '@admin-panel/components';
 
 @NgModule({
-    declarations: [AppComponent], /* PASA A UN MODULO el nextpagecomponent* */
+    declarations: [AppComponent] /* PASA A UN MODULO el nextpagecomponent* */,
     imports: [
         HttpClientModule,
-        GraphModule,
         BrowserModule,
         AppRoutingModule,
         BlockModule,
-        ModuleBModule,
-        AModule,
         TabsModule,
         BrowserModule,
         ARoleModule,
-        TableModule,
-        IndependentModule,
+        AdminAppModule,
     ],
     entryComponents: [],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: CustomInterceptor,
-            multi: true,
-        },
-    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

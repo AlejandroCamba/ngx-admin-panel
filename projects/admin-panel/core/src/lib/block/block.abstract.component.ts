@@ -1,4 +1,4 @@
-import { ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { ViewChild, ElementRef, ViewChildren, QueryList, Directive } from '@angular/core';
 import { BlockDirective } from './directives/block.directive';
 import { noop } from 'rxjs';
 import { Grid } from './factories/families/grid/grid.model';
@@ -6,6 +6,7 @@ import { Flex } from './factories/families/flex/flex.model';
 import { FlexGrid } from './factories/families/flex-grid/flex-grid.model';
 import { Block } from './factories/families/block/block.model';
 
+@Directive()
 export abstract class BlockComponent {
     private parentBlock: ElementRef<HTMLElement>;
 

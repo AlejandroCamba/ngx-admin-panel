@@ -67,4 +67,5 @@ export * from './lib/table-module/table.component';
  // NEW VERSIONNNNNNNN
 
  export * from './lib/admin-app/admin-app.module';
- export * from './lib/admin-app/admin-app.abstract';
+ export * from './lib/admin-app/admin-app.abstract'; 
+ export * from './lib/admin-app/directives/admin-main.directive';
