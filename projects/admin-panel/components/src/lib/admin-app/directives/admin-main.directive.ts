@@ -5,8 +5,4 @@ import { Directive, Input } from '@angular/core';
 })
 export class AdminMainDirective {
   @Input() menuItems: import('@nebular/theme').NbMenuItem;
-
-  constructor() {
-    
-  }
 }

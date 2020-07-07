@@ -1,27 +1,21 @@
-import { ViewChild, ViewContainerRef, ComponentFactoryResolver, Directive } from '@angular/core';
+import { ViewChild, ViewContainerRef, ComponentFactoryResolver, Directive, ComponentRef } from '@angular/core';
 import { AdminMainDirective } from './directives/admin-main.directive';
 import { AdminAppComponent } from './admin-app.component';
 
 /**
  * @classdesc Implements the basic building structure of an admin application.
  */
-@Directive()
 export abstract class AdminApp {
     @ViewChild(AdminMainDirective, { read: ViewContainerRef })
     private appSelector: ViewContainerRef;
+    private appInstace: ComponentRef<AdminAppComponent>;
 
-    @ViewChild(AdminMainDirective, { static: false })
-    private appInstance: AdminMainDirective;
-
-    private adminInstance: { menu: import('@nebular/theme').NbMenuItem };
-
-    constructor(private resolver: ComponentFactoryResolver) {}
+    constructor(private resolver: ComponentFactoryResolver, private adminMain: AdminMainDirective) {}
 
     /**
      * @Param routes {} the routes to be used to override the current routes at AdminAppModule
      */
     public appendRoutes(routes) {
-        this.adminInstance.menu = routes;
     }
 
     public addRoutes() {}
@@ -33,10 +27,10 @@ export abstract class AdminApp {
     public addFooter() {}
 
     public build() {
-        const app = this.appSelector.createComponent(
+        this.appInstace = this.appSelector.createComponent(
             this.resolver.resolveComponentFactory(AdminAppComponent)
         );
         
-        app['menu'] = this.appInstance.menuItems;
+        this.appInstace['menu'] = this.adminMain.menuItems;
     }
 }

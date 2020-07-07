@@ -12,6 +12,7 @@
 @import '../../../../../../../node_modules/bootstrap/scss/mixins';
 @import '../../../../../../../node_modules/bootstrap/scss/grid';
 
+
 @import './layout';
 @import './overrides';
 
@@ -24,7 +25,6 @@
 
   @include ngx-layout();
   // loading progress bar
-  @include ngx-pace-theme();
 
   @include nb-overrides();
 };

@@ -1,0 +1,6 @@
+{
+  "bundlerOptions": {
+      "entryFile": "/Users/alejandrocamba/Documents/Projects/library-workspace/projects/admin-panel/components/src/lib/@theme/styles/styles.scss",
+      "outFile": "/Users/alejandrocamba/Documents/Projects/library-workspace/dist/admin-panel/components/lib/@theme/styles/styles.scss"
+  }
+}

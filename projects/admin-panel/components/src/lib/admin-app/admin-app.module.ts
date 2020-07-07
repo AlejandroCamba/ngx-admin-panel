@@ -17,6 +17,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { CoreModule } from '../@core/core.module';
 
 @NgModule({
   imports: [
@@ -29,10 +30,11 @@ import {
     NbToastrModule.forRoot(),
     NbWindowModule.forRoot(),
     ThemeModule.forRoot(),
+    CoreModule.forRoot(),
   ],
   declarations: [AdminMainDirective, AdminAppComponent],
   entryComponents: [AdminAppComponent],
-  providers: [LayoutService],
+  providers: [LayoutService, AdminMainDirective],
   exports: [AdminMainDirective]
 })
 export class AdminAppModule {
