@@ -249,7 +249,14 @@ const MENU_ITEMS: NbMenuItem[] = [
   },
 ];
 
-
+const angularRoutes = [
+  {
+    path: 'pages',
+    component: ''
+  },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' },
+]
 
 @Component({
     selector: 'app-root',
@@ -260,6 +267,7 @@ export class AppComponent extends AdminApp implements AfterViewInit {
   public menu = MENU_ITEMS;
 
   ngAfterViewInit() {
-    this.build()
+    this.appendRoutes(angularRoutes);
+    this.build();
   }
 }
