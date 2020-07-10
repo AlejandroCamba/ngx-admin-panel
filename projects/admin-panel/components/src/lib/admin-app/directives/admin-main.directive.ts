@@ -4,5 +4,5 @@ import { Directive, Input } from '@angular/core';
   selector: '[admin-main]'
 })
 export class AdminMainDirective {
-  @Input() menuItems: import('@nebular/theme').NbMenuItem;
+  @Input() menuItems: import('@nebular/theme').NbMenuItem[];
 }

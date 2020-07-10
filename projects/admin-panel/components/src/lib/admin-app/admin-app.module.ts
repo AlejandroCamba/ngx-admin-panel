@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-
-import { AdminAppRoutingModule } from './admin-app-routing.module';
 import { LayoutService } from '../@theme/layouts/layout.service';
 import { AdminMainDirective } from './directives/admin-main.directive';
 import { AdminAppComponent } from './admin-app.component';
@@ -18,10 +16,14 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { CoreModule } from '../@core/core.module';
+import { LazyLoaderService } from './services/lazy-load.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    AdminAppRoutingModule,
+    BrowserModule,
+    RouterModule,
     NbChatModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
@@ -34,7 +36,7 @@ import { CoreModule } from '../@core/core.module';
   ],
   declarations: [AdminMainDirective, AdminAppComponent],
   entryComponents: [AdminAppComponent],
-  providers: [LayoutService, AdminMainDirective],
+  providers: [LayoutService, AdminMainDirective, LazyLoaderService],
   exports: [AdminMainDirective]
 })
 export class AdminAppModule {

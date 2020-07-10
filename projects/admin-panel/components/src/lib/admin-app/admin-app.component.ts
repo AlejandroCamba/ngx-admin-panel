@@ -1,16 +1,37 @@
-import { Component, Input } from '@angular/core';
+import {
+    Component,
+    Input,
+    ViewChild,
+    ViewContainerRef,
+    AfterViewInit,
+    SimpleChanges,
+    OnChanges,
+    ChangeDetectorRef,
+} from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
-  selector: 'ngx-pages',
-  styleUrls: ['admin-app.component.scss'],
-  template: `
-    <ngx-one-column-layout>
-    <ng-container *ngIf="menu">
-      <nb-menu [items]="menu"></nb-menu>
-    </ng-container>
-    <router-outlet></router-outlet>
-    </ngx-one-column-layout>  `,
+    selector: 'ngx-pages',
+    styleUrls: ['admin-app.component.scss'],
+    template: `
+        <ngx-one-column-layout>
+            <nb-menu tag="menu" [items]="menu"></nb-menu>
+            <router-outlet></router-outlet>
+        </ngx-one-column-layout>
+    `,
 })
 export class AdminAppComponent {
-  @Input() public menu: import('@nebular/theme').NbMenuItem;
+    @Input() public menu?: import('@nebular/theme').NbMenuItem[];
+    @Input() public fakeRouterContainer: ViewContainerRef;
+    public fakeRouterInitialized$? = new Subject(); 
+
+    dispatchTest = (container: ViewContainerRef) => {
+      console.log('DISPATCH!!', container)
+      this.fakeRouterContainer = container;
+      this.fakeRouterInitialized$.next(container);
+    }
+
+    constructor() {
+      console.log('AdminAppComponent Constructs')
+    }
 }

@@ -1,11 +1,16 @@
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-
-const routes: Routes = [];
+import { ADMIN_ROUTES, PagesComponent } from '@admin-panel/components';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot([
+            {
+                path: 'pages/:section',
+                component: PagesComponent,
+            },
+        ]),
+    ],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AdminAppRoutingModule {}

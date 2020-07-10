@@ -4,46 +4,76 @@ import {
     ComponentFactoryResolver,
     Directive,
     ComponentRef,
+    Type,
 } from '@angular/core';
 import { AdminMainDirective } from './directives/admin-main.directive';
 import { AdminAppComponent } from './admin-app.component';
-import { AdminAppRoutingModule } from './admin-app-routing.module';
 import { Router } from '@angular/router';
+import { LazyLoaderService } from './services/lazy-load.service';
+import { resolve } from './services/factory-resolver.utils';
+import { NbMenuService, NbMenuItem } from '@nebular/theme';
+import { filter } from 'rxjs/operators';
 
 /**
- * @classdesc Implements the basic building structure of an admin application.
+ * @classdesc Implements the basic building structure of our admin application.
  */
 export abstract class AdminApp {
     @ViewChild(AdminMainDirective, { read: ViewContainerRef })
     private appSelector: ViewContainerRef;
-    private appInstace: ComponentRef<AdminAppComponent>;
+    @ViewChild(AdminMainDirective, { static: false }) private adminMain: AdminMainDirective;
 
-    constructor(
-        private resolver: ComponentFactoryResolver,
-        private adminMain: AdminMainDirective,
-        private router: Router
-    ) {}
+    private appRef: ComponentRef<AdminAppComponent>;
+    private appInstance: AdminAppComponent;
 
-    /**
-     * @Param routes {} the routes to be used to override the current routes at AdminAppModule
-     */
-    public appendRoutes(routes) {
-        this.router.resetConfig(routes);
+    private routePair: Map<string, Type<unknown>>;
+
+    constructor(private resolver: ComponentFactoryResolver, private nbMenuService: NbMenuService, private router: Router) {}
+
+    public addMenuItem(items: NbMenuItem[]) {
+        this.nbMenuService.addItems(items, 'menu');
     }
 
-    public addRoutes() {}
-
-    public addTabs() {}
-
-    public addHeader() {}
-
-    public addFooter() {}
-
     public build() {
-        this.appInstace = this.appSelector.createComponent(
-            this.resolver.resolveComponentFactory(AdminAppComponent)
+        this.appRef = this.appSelector.createComponent(
+            resolve<AdminAppComponent>(this.resolver, AdminAppComponent)
         );
 
-        this.appInstace.instance.menu = this.adminMain.menuItems;
+        this.appInstance = this.appRef.instance;
+
+        this.appInstance.menu = this.adminMain.menuItems;
+        this.appRef.changeDetectorRef.markForCheck();
+
+        this.appInstance.fakeRouterInitialized$.subscribe((container) => {
+            console.log('CONTAINERRR', container);
+            this.appInstance.fakeRouterContainer = <ViewContainerRef>container;
+            this.appRef.changeDetectorRef.markForCheck();
+            this.appInstance = this.appRef.instance;
+            this.router.events.subscribe((route) => {
+                console.log(this.appInstance);
+                console.log('rooooute', route);
+                this.goToRoute('pages/a');
+            })
+        });
+    }
+
+    public goToRoute<T>(route: string): void {
+        console.log('ins', this.appInstance);
+        if (this.appInstance.fakeRouterContainer) {
+            this.appInstance.fakeRouterContainer.clear();
+        }
+
+        this.appInstance.fakeRouterContainer.createComponent(
+            resolve<T>(this.resolver, this.routePair.get(route) as Type<T>)
+        );
+
+        this.appRef.changeDetectorRef.markForCheck();
+    }
+
+    public registerRoute(route, component) {
+        if (!this.routePair) {
+            this.routePair = new Map<string, Type<unknown>>();
+        }
+
+        this.routePair.set(route, component);
     }
 }

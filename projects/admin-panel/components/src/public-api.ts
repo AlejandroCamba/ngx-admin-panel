@@ -69,3 +69,7 @@ export * from './lib/table-module/table.component';
  export * from './lib/admin-app/admin-app.module';
  export * from './lib/admin-app/admin-app.abstract'; 
  export * from './lib/admin-app/directives/admin-main.directive';
+ export * from './lib/admin-app/services/lazy-load.service';
+ export * from './lib/admin-app/admin-app-routing.module'
+ export * from './lib/admin-app/admin-app.component';
+ export * from './lib/admin-app/components/pages.component';

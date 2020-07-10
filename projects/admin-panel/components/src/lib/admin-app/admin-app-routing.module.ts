@@ -1,8 +1,20 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AdminAppComponent } from './admin-app.component';
 
-@NgModule({
-  imports: [RouterModule.forChild([])],
-  exports: [RouterModule],
-})
-export class AdminAppRoutingModule {}
+export const ADMIN_ROUTES: Routes = [
+  {
+    path: '',
+    redirectTo: 'admin',
+    pathMatch: 'full'
+},
+{
+    path: 'admin',
+    component: AdminAppComponent,
+    // children: [
+    //     {
+    //         path: 'pages/:tab', //:type is dynamic here
+    //     },
+    // ],
+},
+];
