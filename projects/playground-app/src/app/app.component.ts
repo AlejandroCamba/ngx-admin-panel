@@ -3,6 +3,7 @@ import { AdminApp, AdminMainDirective, LazyLoaderService } from '@admin-panel/co
 import { NbMenuItem } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const MENU_ITEMS: NbMenuItem[] = [
     {
@@ -25,12 +26,8 @@ export class AppComponent extends AdminApp implements AfterViewInit {
     public menu = MENU_ITEMS;
     
     ngAfterViewInit() {
-        this.registerRoute('pages/a', PagesComponent);
-        this.registerRoute('pages/b', PagesComponent);
+        this.registerRoute('/pages/b', PagesComponent);
+        this.registerRoute('/pages/a', DashboardComponent);
         this.build();
-
-    //   this.addMenuItem();
-    //   this.addMenuItem();
-    //   this.addMenuItem();
     }
 }

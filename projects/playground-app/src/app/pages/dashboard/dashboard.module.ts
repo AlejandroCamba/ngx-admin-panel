@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {DashboardComponent} from './dashboard.component';
 import {
   NbActionsModule,
   NbButtonModule,
@@ -25,6 +26,8 @@ import {
     NbButtonModule,
   ],
   declarations: [
+    DashboardComponent
   ],
+  entryComponents: [DashboardComponent]
 })
 export class DashboardModule { }

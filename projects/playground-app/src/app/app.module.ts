@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AdminAppModule, LazyLoaderService } from '@admin-panel/components';
 import { RouterModule, Router } from '@angular/router';
-import {AdminAppRoutingModule} from './app-routing.module'
+import {AdminAppRoutingModule} from './app-routing.module';
+import { PagesModule } from './pages/pages.module'
 @NgModule({
     declarations: [AppComponent] /* PASA A UN MODULO el nextpagecomponent* */,
     imports: [
@@ -22,7 +23,8 @@ import {AdminAppRoutingModule} from './app-routing.module'
         TabsModule,
         BrowserModule,
         ARoleModule,
-        AdminAppModule
+        AdminAppModule, 
+        PagesModule
     ],
     entryComponents: [],
     providers: [LazyLoaderService],

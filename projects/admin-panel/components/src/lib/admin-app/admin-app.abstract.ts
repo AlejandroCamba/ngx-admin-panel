@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { AdminMainDirective } from './directives/admin-main.directive';
 import { AdminAppComponent } from './admin-app.component';
-import { Router } from '@angular/router';
+import { Router, ResolveStart, NavigationStart } from '@angular/router';
 import { LazyLoaderService } from './services/lazy-load.service';
 import { resolve } from './services/factory-resolver.utils';
 import { NbMenuService, NbMenuItem } from '@nebular/theme';
@@ -33,37 +33,44 @@ export abstract class AdminApp {
         this.nbMenuService.addItems(items, 'menu');
     }
 
+    /**
+     * "Instantiates" the admin panel with the routes provided with registerRoute method.
+     */
     public build() {
         this.appRef = this.appSelector.createComponent(
             resolve<AdminAppComponent>(this.resolver, AdminAppComponent)
         );
-
         this.appInstance = this.appRef.instance;
-
+        
         this.appInstance.menu = this.adminMain.menuItems;
-        this.appRef.changeDetectorRef.markForCheck();
-
         this.appInstance.fakeRouterInitialized$.subscribe((container) => {
-            console.log('CONTAINERRR', container);
             this.appInstance.fakeRouterContainer = <ViewContainerRef>container;
             this.appRef.changeDetectorRef.markForCheck();
             this.appInstance = this.appRef.instance;
-            this.router.events.subscribe((route) => {
-                console.log(this.appInstance);
-                console.log('rooooute', route);
-                this.goToRoute('pages/a');
+
+            this.router.events.pipe(
+                filter((evt) => {
+                    console.log('evt', evt)
+                    return evt instanceof NavigationStart;
+                })
+            ).subscribe((navigation: NavigationStart) => {
+                console.log('route', JSON.stringify(navigation.url));
+                this.goToRoute(navigation.url);
             })
         });
+
+        this.appRef.changeDetectorRef.markForCheck();
     }
 
     public goToRoute<T>(route: string): void {
-        console.log('ins', this.appInstance);
         if (this.appInstance.fakeRouterContainer) {
             this.appInstance.fakeRouterContainer.clear();
         }
 
+        lazyComponent = this.routePair.get(route);
+
         this.appInstance.fakeRouterContainer.createComponent(
-            resolve<T>(this.resolver, this.routePair.get(route) as Type<T>)
+            resolve<T>(this.resolver, lazyComponent as Type<T>)
         );
 
         this.appRef.changeDetectorRef.markForCheck();
