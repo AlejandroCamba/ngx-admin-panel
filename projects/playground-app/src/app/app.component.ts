@@ -4,7 +4,8 @@ import { NbMenuItem } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import {SmartTableComponent} from './pages/smart-table/smart-table.component';
+ 
 const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'ome',
@@ -28,7 +29,7 @@ export class AppComponent extends AdminApp implements AfterViewInit {
 
     ngAfterViewInit() {
         this.registerRoute('/pages/b', PagesComponent);
-        this.registerRoute('/pages/a', DashboardComponent);
+        this.registerRoute('/pages/a', SmartTableComponent);
         this.build();
 
         this.addMenuItem([{
