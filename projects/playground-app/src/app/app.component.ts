@@ -9,6 +9,7 @@ const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'ome',
         link: 'pages/a',
+        icon: 'star'
     },
     {
         title: 'dashboard',
@@ -24,10 +25,15 @@ const MENU_ITEMS: NbMenuItem[] = [
 })
 export class AppComponent extends AdminApp implements AfterViewInit {
     public menu = MENU_ITEMS;
-    
+
     ngAfterViewInit() {
         this.registerRoute('/pages/b', PagesComponent);
         this.registerRoute('/pages/a', DashboardComponent);
         this.build();
+
+        this.addMenuItem([{
+            title: 'page 2',
+            link: 'pages/2',
+        },]);
     }
 }
