@@ -11,17 +11,17 @@ export class SmartTableComponent {
 
   settings = {
     add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      addButtonContent: '<i class="eva eva-plus-outline"></i>',
+      createButtonContent: '<i class="eva eva-checkmark-outline"></i>',
+      cancelButtonContent: '<i class="eva eva-close-outline"></i>',
     },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      editButtonContent: '<i class="eva eva-edit-outline"></i>',
+      saveButtonContent: '<i class="eva eva-checkmark-outline"></i>',
+      cancelButtonContent: '<i class="eva eva-close-outline"></i>',
     },
     delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
+      deleteButtonContent: '<i class="eva eva-trash-outline"></i>',
       confirmDelete: true,
     },
     columns: {
@@ -55,8 +55,7 @@ export class SmartTableComponent {
   source: LocalDataSource = new LocalDataSource();
 
   constructor() {
-    const data = tableData;
-    this.source.load(data);
+    this.source.load(tableData);
   }
 
   onDeleteConfirm(event): void {

@@ -29,7 +29,8 @@
                         ],
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.css",
-                            "dist/admin-panel/components/lib/@theme/styles/styles.scss"
+                            "dist/admin-panel/components/lib/@theme/styles/styles.scss",
+                            "node_modules/eva-icons/style/scss/eva-icons.scss"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.js",
