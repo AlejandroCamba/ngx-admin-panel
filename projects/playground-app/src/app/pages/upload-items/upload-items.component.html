@@ -1,0 +1,14 @@
+<ng-container *ngIf="fileUploaded === true">
+  <nb-alert status="{{alert_type}}" closable>
+    {{alert_message}}
+  </nb-alert>
+</ng-container>
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <textarea nbInput fullWidth placeholder="Full width" [(ngModel)]="items"></textarea>
+    <input type="text" nbInput placeholder="game-console-server ID" [(ngModel)]="game_console_server_relation">
+    <span #uploadItems>
+      <button nbButton status="info" class="m-4">upload</button>
+    </span>
+  </nb-card-body>
+</nb-card>

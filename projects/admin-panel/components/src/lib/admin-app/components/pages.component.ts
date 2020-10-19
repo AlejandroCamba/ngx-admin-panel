@@ -18,9 +18,7 @@ export class PagesComponent implements AfterViewInit {
     constructor(
         @Optional() private adminApp: AdminAppComponent,
         private router: Router
-    ) {
-      console.log('PagesComponent Constructs')
-    }
+    ) {}
 
     ngAfterViewInit() {
       this.adminApp.dispatchTest(this.tabContent);

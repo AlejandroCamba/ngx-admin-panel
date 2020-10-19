@@ -26,12 +26,9 @@ export class AdminAppComponent {
     public fakeRouterInitialized$? = new Subject(); 
 
     dispatchTest = (container: ViewContainerRef) => {
-      console.log('DISPATCH!!', container)
       this.fakeRouterContainer = container;
       this.fakeRouterInitialized$.next(container);
     }
 
-    constructor() {
-      console.log('AdminAppComponent Constructs')
-    }
+    constructor() {}
 }

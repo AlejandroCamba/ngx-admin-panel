@@ -7,7 +7,7 @@ import { AdminAppComponent } from '@admin-panel/components';
   selector: 'ngx-pages',
   styleUrls: ['pages.component.scss'],
   template: `
-    jejejejejejej
+    <div>aaaaa</div>
   `,
 })
 export class PagesComponent {

@@ -1,0 +1,18 @@
+<ng-container *ngIf="fileUploaded === true">
+  <nb-alert status="{{alert_type}}" closable>
+    {{alert_message}}
+  </nb-alert>
+</ng-container>
+<nb-card>
+  <nb-card-header>Upload Prices</nb-card-header>
+  <nb-card-body class="example-items-rows">
+    <input type="file" nbInput placeholder="Text field" (change)="onFileChanged($event)">
+    <nb-select class="m-4" placeholder="Select Showcase" [(selected)]="selectedItem">
+      <nb-option *ngFor="let option of qualities" value="{{option}}">{{option}}</nb-option>
+    </nb-select>
+    <input type="text" nbInput placeholder="game-console-server ID" [(ngModel)]="game_console_server_relation">
+    <span #prices class="ml-4">
+      <button nbButton status="info" class="">upload</button>
+    </span>
+  </nb-card-body>
+</nb-card>

@@ -45,6 +45,10 @@ export * from './lib/independent-module/containers/next-page/next-page.component
 
 export * from './lib/table-module/table.module';
 export * from './lib/table-module/table.component';
+export * from './lib/table-module/admin-table.component';
+export * from './lib/table-module/interfaces/on-create.interface';
+export * from './lib/table-module/interfaces/on-delete.interface';
+export * from './lib/table-module/interfaces/on-update.interface';
 
 /*
  * GRAPH MODULE 

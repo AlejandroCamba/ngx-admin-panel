@@ -1,11 +1,11 @@
 // @nebular theming framework
-@import '../../../../../../../node_modules/@nebular/theme/styles/theming';
+@import 'node_modules/@nebular/theme/styles/theming';
 // @nebular out of the box themes
-@import '../../../../../../../node_modules/@nebular/theme/styles/themes/corporate';
-@import '../../../../../../../node_modules/@nebular/theme/styles/themes/cosmic';
-@import '../../../../../../../node_modules/@nebular/theme/styles/themes/dark';
-@import '../../../../../../../node_modules/@nebular/theme/styles/themes/default';
-@import '../../../../../../../node_modules/@nebular/theme/styles/themes/mapping';
+@import 'node_modules/@nebular/theme/styles/themes/corporate';
+@import 'node_modules/@nebular/theme/styles/themes/cosmic';
+@import 'node_modules/@nebular/theme/styles/themes/dark';
+@import 'node_modules/@nebular/theme/styles/themes/default';
+@import 'node_modules/@nebular/theme/styles/themes/mapping';
 
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
