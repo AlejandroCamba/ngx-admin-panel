@@ -6,12 +6,13 @@ name: Test and Release
 on: [push]
 
 jobs:
-  test-and-release:
+  build:
     name: Run tests and release
     runs-on: ubuntu-18.04
     steps:
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1      
       with:
         node-version: 14.13.1
     - name: Install dependencies
