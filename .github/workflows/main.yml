@@ -7,7 +7,6 @@ on: [push]
 
 jobs:
   build:
-    name: Run tests and release
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
