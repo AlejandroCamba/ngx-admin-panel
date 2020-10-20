@@ -19,6 +19,8 @@ import { CoreModule } from '../@core/core.module';
 import { LazyLoaderService } from './services/lazy-load.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { PagesComponent } from './components/pages.component';
+import { HeaderComponent } from '../@theme/components/header/header.component';
 
 @NgModule({
   imports: [
@@ -34,9 +36,11 @@ import { RouterModule } from '@angular/router';
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
   ],
-  declarations: [AdminMainDirective, AdminAppComponent],
+  declarations: [AdminMainDirective, AdminAppComponent, PagesComponent, HeaderComponent, OneColumnLayoutComponent,
+  ],
   entryComponents: [AdminAppComponent],
-  providers: [LayoutService, AdminMainDirective, LazyLoaderService],
+  providers: [LayoutService, AdminMainDirective, LazyLoaderService
+],
   exports: [AdminMainDirective]
 })
 export class AdminAppModule {

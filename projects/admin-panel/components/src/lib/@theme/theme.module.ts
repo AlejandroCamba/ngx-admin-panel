@@ -22,11 +22,11 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 
-import {
-  OneColumnLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
-} from './layouts';
+// import {
+//   OneColumnLayoutComponent,
+//   ThreeColumnsLayoutComponent,
+//   TwoColumnsLayoutComponent,
+// } from './layouts';
 
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
@@ -48,31 +48,27 @@ const NB_MODULES = [
   NbEvaIconsModule,
 ];
 
-import {
-  CapitalizePipe,
-  PluralPipe,
-  RoundPipe,
-  TimingPipe,
-  NumberWithCommasPipe,
-} from './pipes';
+// import {
+//   CapitalizePipe,
+//   PluralPipe,
+//   RoundPipe,
+//   TimingPipe,
+//   NumberWithCommasPipe,
+// } from './pipes';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 
 const COMPONENTS = [
-  HeaderComponent,
+  // HeaderComponent,
   FooterComponent,
   SearchInputComponent,
-  OneColumnLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  // OneColumnLayoutComponent,
+  // ThreeColumnsLayoutComponent,
+  // TwoColumnsLayoutComponent,
 ];
 
 const PIPES = [
-  CapitalizePipe,
-  PluralPipe,
-  RoundPipe,
-  TimingPipe,
-  NumberWithCommasPipe,
+
 ];
 
 
@@ -93,6 +89,7 @@ export class ThemeModule {
           [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
         ).providers,
       ],
+      
     };
   }
 }

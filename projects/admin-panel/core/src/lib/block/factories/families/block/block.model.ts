@@ -1,6 +1,6 @@
 import { BlockPosition } from '../../position.factory';
 import { StructureType } from '../../../models/models';
-import { ContentPosition } from '../../';
+import { ContentPosition } from '../..';
 
 export class Block implements BlockPosition<Block, StructureType.block> {
     constructor(

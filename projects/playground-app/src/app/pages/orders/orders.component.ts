@@ -17,12 +17,12 @@ export class OrdersTableComponent extends AdminTableComponent implements AfterVi
 
     onDeleteConfirm = ({ data: { id }, confirm }) => {
         alert('Sorry, orders cannot be removed');
-    
-    };
+
+    }
 
     onCreateConfirm = (event) => {
         alert('Sorry, orders cannot be created');
-    };
+    }
 
     onSaveConfirm = ({ newData, confirm }) => {
         if (window.confirm('Are you sure you want to update?')) {
@@ -42,7 +42,7 @@ export class OrdersTableComponent extends AdminTableComponent implements AfterVi
         } else {
             confirm.reject();
         }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Orders');
@@ -101,7 +101,7 @@ export class OrdersTableComponent extends AdminTableComponent implements AfterVi
                         paymentMethod: order.paymentMethod,
                         status: order.status,
                         responseFromTeam: order.responseFromTeam,
-                        amount: order.paymentMethod === 'IN-GAME'? order.plan?.gamePrice : order.plan?.price,
+                        amount: order.paymentMethod === 'IN-GAME' ? order.plan?.gamePrice : order.plan?.price,
                         remainingAmount: order.remainingGameAmount,
                     };
                 })

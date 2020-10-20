@@ -3,8 +3,8 @@ import { NgModule, Injectable } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { TabsModule, TabsComponent, TabDirective, TableModule } from '@admin-panel/components';
-import { BlockModule, ARoleModule } from '@admin-panel/core';
+import { TabsModule, TableModule } from '@admin-panel/components';
+import { BlockModule } from '@admin-panel/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +14,15 @@ import { AdminAppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { UsersTableLayout } from './pages/users/layout/layout.component';
-import { NbCardModule, NbTreeGridModule, NbIconModule, NbSelectModule, NbInputModule, NbButtonModule, NbAlertModule } from '@nebular/theme';
+import {
+    NbCardModule,
+    NbTreeGridModule,
+    NbIconModule,
+    NbSelectModule,
+    NbInputModule,
+    NbButtonModule,
+    NbAlertModule,
+} from '@nebular/theme';
 import { UsersTableComponent } from './pages/users/users.component';
 import { ConsoleComponent } from './pages/simple-tables/console/console.component';
 import { GameComponent } from './pages/simple-tables/game/game.component';
@@ -59,7 +67,7 @@ import { PaymentTableLayout } from './pages/payments/layout/layout.component';
         OrdersTableComponent,
         PaymentsTableComponent,
         PaymentTableLayout,
-        OrdersTableLayout
+        OrdersTableLayout,
     ] /* PASA A UN MODULO el nextpagecomponent* */,
     imports: [
         AdminAppRoutingModule,
@@ -69,7 +77,6 @@ import { PaymentTableLayout } from './pages/payments/layout/layout.component';
         BlockModule,
         TabsModule,
         BrowserModule,
-        ARoleModule,
         AdminAppModule,
         PagesModule,
         Ng2SmartTableModule, // NECESARIO PARA SMART TABLES
@@ -80,11 +87,21 @@ import { PaymentTableLayout } from './pages/payments/layout/layout.component';
         NbButtonModule,
         NbInputModule,
         NbAlertModule,
+        TabsModule,
         TableModule,
         HttpModule,
-        FormsModule
+        FormsModule,
     ],
-    entryComponents: [UsersTableComponent, SimpleTablesComponent, MultiSelComponent],
+    entryComponents: [
+        UsersTableComponent,
+        GameItemsComponent,
+        UploadPricesComponent,
+        UploadItemsComponent,
+        SimpleTablesComponent,
+        OrdersTableComponent,
+        PaymentsTableComponent,
+        MultiSelComponent,
+    ],
     providers: [LazyLoaderService],
     bootstrap: [AppComponent],
 })

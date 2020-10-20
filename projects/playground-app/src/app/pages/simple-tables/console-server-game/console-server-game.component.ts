@@ -54,7 +54,7 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
     ngAfterViewInit() {
         this.setTitle('Relations');
         this.apiService.get('game').pipe(
-            concatMap(games => 
+            concatMap(games =>
                 this.apiService.get('game-console').pipe(
                     map((consoles) => ({games, consoles}))
             )),
@@ -79,7 +79,7 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
                         list: result.consoles.map((gameConsole) => ({value: gameConsole.id, title: gameConsole.name}))
                       },
                     }
-                  },       
+                  },
                   gameServer: {
                     title: 'Server',
                     type: 'html',

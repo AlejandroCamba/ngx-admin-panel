@@ -28,7 +28,7 @@ export class GameItemsComponent extends AdminTableComponent implements AfterView
       } else {
           confirm.reject();
       }
-  };
+  }
 
   onCreateConfirm = (event) => {
       if (window.confirm('Are you sure you want to create?')) {
@@ -40,29 +40,29 @@ export class GameItemsComponent extends AdminTableComponent implements AfterView
       } else {
           event.confirm.reject();
       }
-  };
+  }
 
   onSaveConfirm = ({ newData, confirm }) => {
       if (window.confirm('Are you sure you want to update?')) {
           const dataCopy = { ...newData };
 
           Object.keys(dataCopy).forEach((key) => {
-            if(!dataCopy[key]) {
+            if (!dataCopy[key]) {
               delete dataCopy[key];
 
             }
-          })
+          });
 
           console.log('resulted obj: ', dataCopy);
           delete dataCopy.itemId;
-          
+
           this.apiService.put(`item/${newData.itemId}`, dataCopy).subscribe((response) => {
               confirm.resolve();
           });
       } else {
           confirm.reject();
       }
-  };
+  }
 
     ngAfterViewInit() {
         this.apiService.get('console-to-server-to-game').subscribe((games) => {

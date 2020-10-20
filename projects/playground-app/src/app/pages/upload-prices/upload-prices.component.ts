@@ -49,7 +49,7 @@ export class UploadPricesComponent extends AdminTableComponent implements AfterV
             }),
             concatMap((evt) => {
                 console.log(evt);
-                let formData = new FormData();
+                const formData = new FormData();
 
                 formData.append('file', this.fileToUpload, this.fileToUpload.name);
 
@@ -57,7 +57,7 @@ export class UploadPricesComponent extends AdminTableComponent implements AfterV
                     formData.append('quality', this.selectedItem);
                 }
 
-                let headers = new Headers();
+                const headers = new Headers();
                 headers.append('Content-Type', 'multipart/form-data');
                 headers.append('Accept', 'application/json');
 

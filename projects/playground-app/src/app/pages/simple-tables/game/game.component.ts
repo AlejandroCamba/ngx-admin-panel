@@ -20,7 +20,7 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
         } else {
             confirm.reject();
         }
-    };
+    }
 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
@@ -32,11 +32,11 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
         } else {
             event.confirm.reject();
         }
-    };
+    }
 
     onSaveConfirm = ({ newData, confirm }) => {
         console.log('newdata', newData);
-        if (newData.removePlan === "") {
+        if (newData.removePlan === '') {
             newData.removePlan = [];
         }
 
@@ -52,7 +52,7 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
         } else {
             confirm.reject();
         }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Games');

@@ -13,7 +13,7 @@ type RoleRules = Record<
 @Injectable()
 export class ARoleService {
     private workFlow$ = new BehaviorSubject<RoleRules>({});
-    static abilityInstance: Ability;
+    static abilityInstance: Ability = null;
 
     constructor(private ability: Ability) {}
 

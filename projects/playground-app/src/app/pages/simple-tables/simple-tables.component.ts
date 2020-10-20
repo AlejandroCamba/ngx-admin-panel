@@ -1,5 +1,4 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { tableData } from '../../data/smart-table';
 
 @Component({

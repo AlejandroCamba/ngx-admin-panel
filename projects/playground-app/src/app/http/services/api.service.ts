@@ -15,7 +15,7 @@ export class ApiService {
       body,
       { headers: headers || this.headers()}
     ).pipe(catchError(this.formatErrors));
-  }  
+  }
 
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
@@ -23,15 +23,15 @@ export class ApiService {
       JSON.stringify(body),
       { headers: this.headers()}
     ).pipe(catchError(this.formatErrors));
-  }  
+  }
 
   delete(path: string): Observable<any> {
     return this.http.delete(
       `${environment.apiUrl}${path}`,
       { headers: this.headers()}
     ).pipe(catchError(this.formatErrors));
-  }  
-  
+  }
+
   get(path: string): Observable<any> {
     return this.http.get(
       `${environment.apiUrl}${path}`,
@@ -41,11 +41,11 @@ export class ApiService {
 
   headers(): HttpHeaders {
     const headers = {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     };
 
-    return new HttpHeaders(headers)
+    return new HttpHeaders(headers);
   }
 
   private formatErrors(error: any) {

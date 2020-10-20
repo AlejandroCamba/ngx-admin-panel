@@ -22,7 +22,7 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
         } else {
             confirm.reject();
         }
-    };
+    }
 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
@@ -34,7 +34,7 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
         } else {
             event.confirm.reject();
         }
-    };
+    }
 
     onSaveConfirm = ({newData, confirm}) => {
       if (window.confirm('Are you sure you want to update?')) {
@@ -48,7 +48,7 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
     } else {
         confirm.reject();
     }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Game Servers');

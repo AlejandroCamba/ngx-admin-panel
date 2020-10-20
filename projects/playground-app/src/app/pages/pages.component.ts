@@ -12,7 +12,7 @@ import { AdminAppComponent } from '@admin-panel/components';
 })
 export class PagesComponent {
   constructor(@Optional() private aac: AdminAppComponent) {
-    console.log('aac', this.aac)
+    console.log('aac', this.aac);
 
   }
   menu = MENU_ITEMS;

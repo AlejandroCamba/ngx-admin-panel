@@ -17,12 +17,12 @@ export class PaymentsTableComponent extends AdminTableComponent implements After
 
     onDeleteConfirm = ({ data: { id }, confirm }) => {
         alert('Sorry, payments cannot be removed');
-    
-    };
+
+    }
 
     onCreateConfirm = (event) => {
         alert('Sorry, payments cannot be created');
-    };
+    }
 
     onSaveConfirm = ({ newData, confirm }) => {
         if (window.confirm('Are you sure you want to update?')) {
@@ -42,7 +42,7 @@ export class PaymentsTableComponent extends AdminTableComponent implements After
         } else {
             confirm.reject();
         }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Payments');
@@ -83,12 +83,12 @@ export class PaymentsTableComponent extends AdminTableComponent implements After
                 consoleServerGame: {
                     title: 'Console Server Game Relation',
                     type: 'string',
-                    editable: false   
+                    editable: false
                 },
                 orderId: {
                     title: 'OrderId',
                     type: 'string',
-                    editable: false     
+                    editable: false
                 }
             });
         });

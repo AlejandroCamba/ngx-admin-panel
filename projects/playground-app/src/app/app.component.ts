@@ -6,7 +6,7 @@ import { PagesComponent } from './pages/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {UsersTableComponent} from './pages/users/users.component';
 import { BlockComponent } from 'dist/admin-panel/core/public-api';
-import { SimpleTablesComponent } from './pages/simple-tables/simple-tables.component'; 
+import { SimpleTablesComponent } from './pages/simple-tables/simple-tables.component';
 import { GameItemsComponent } from './pages/game-items/game-items.component';
 import { UploadPricesComponent } from './pages/upload-prices/upload-prices.component';
 import { UploadItemsComponent } from './pages/upload-items/upload-items.component';

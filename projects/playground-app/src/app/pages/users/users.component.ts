@@ -22,7 +22,7 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
         } else {
             confirm.reject();
         }
-    };
+    }
 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
@@ -34,7 +34,7 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
         } else {
             event.confirm.reject();
         }
-    };
+    }
 
     onSaveConfirm = ({ newData, confirm }) => {
         if (window.confirm('Are you sure you want to update?')) {
@@ -54,7 +54,7 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
         } else {
             confirm.reject();
         }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Users');
@@ -111,7 +111,7 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
                 users.map((user) => {
                     return { id: user.id, username: user.username, status: user.status, role: user.role.name };
                 }).filter((user) => {
-                  user.role !== 'ADMIN'
+                  user.role !== 'ADMIN';
                 })
             );
             this.cdr.markForCheck();
