@@ -1,21 +1,16 @@
 # GitHub Actions docs
 # https://help.github.com/en/articles/about-github-actions
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions
-name: CI
-
+    
+name: Test and Release
 on: [push]
 
 jobs:
-  build:
-
-    # Machine environment:
-    # https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions#ubuntu-1804-lts
-    # We specify the Node.js version manually below, and use versioned Chrome from Puppeteer.
+  test-and-release:
+    name: Run tests and release
     runs-on: ubuntu-18.04
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 14.13.1
+    - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 14.13.1
@@ -27,5 +22,8 @@ jobs:
       run: npm run build-all
     - name: Test
       run: npm run test
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run semantic-release
