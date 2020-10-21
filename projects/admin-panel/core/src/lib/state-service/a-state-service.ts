@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 const initialState = {};
 
 @Injectable()
-export class AState<S> {
+export class NgxAdminStateService<S> {
     private state = initialState;
     private behaviourSubject$ = new BehaviorSubject<S>(this.state as S);
 

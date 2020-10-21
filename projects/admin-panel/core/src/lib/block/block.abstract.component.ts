@@ -21,7 +21,7 @@ export abstract class BlockComponent {
                 const wrapper = document.createElement('div'); // creation of block wrapper (container)
 
                 // configuration of wrapper classes
-                if(blockRef.config.contentPosition.grid.height === 'match-parent') {
+                if (blockRef.config.contentPosition.grid.height === 'match-parent') {
                     wrapper.classList.add(...['container-fluid', 'p-0', 'h-100']);
                 } else {
                     wrapper.classList.add(...['container-fluid', 'p-0']);
@@ -36,11 +36,11 @@ export abstract class BlockComponent {
                 wrapper.appendChild(this.parentBlock.nativeElement);
 
                 /*
-                *  
-                * 
+                *
+                *
                     Parent aligment
-                * 
-                * 
+                *
+                *
                 */
                 this.parentBlock.nativeElement.classList.add(...['row']);
                 gridConfig.align
@@ -48,11 +48,11 @@ export abstract class BlockComponent {
                     : noop;
 
                 /*
-                *  
-                * 
+                *
+                *
                     Parent justify
-                * 
-                * 
+                *
+                *
                 */
                 gridConfig.justify
                     ? this.parentBlock.nativeElement.classList.add(gridConfig.justify)
@@ -69,11 +69,11 @@ export abstract class BlockComponent {
                             size = ['col-' + gridConfig.rowConfig[i].defaultSize];
 
                             /*
-                            *  
-                            * 
+                            *
+                            *
                                 Children aligment
-                            * 
-                            * 
+                            *
+                            *
                             */
                             gridConfig.rowConfig[i].align
                                 ? (() => {
@@ -84,14 +84,15 @@ export abstract class BlockComponent {
 
                             ['xs', 'sm', 'md', 'lg', 'xl'].forEach(breakpoint => {
                                 if (gridConfig.rowConfig[i][breakpoint]) {
-                                    if (gridConfig.rowConfig[i][breakpoint]['resizeTo'])
+                                    if (gridConfig.rowConfig[i][breakpoint].resizeTo) {
                                         size.push(
                                             `col-${breakpoint === 'xs' ? '' : breakpoint + '-'}` +
-                                                gridConfig.rowConfig[i][breakpoint]['resizeTo']
+                                                gridConfig.rowConfig[i][breakpoint].resizeTo
                                         );
+                                    }
 
                                     size.push(
-                                        gridConfig.rowConfig[i][breakpoint]['hide']
+                                        gridConfig.rowConfig[i][breakpoint].hide
                                             ? `d-${breakpoint === 'xs' ? '' : breakpoint + '-'}none`
                                             : `d-${
                                                   breakpoint === 'xs' ? '' : breakpoint + '-'
@@ -100,11 +101,11 @@ export abstract class BlockComponent {
                                 }
 
                                 /*
-                                *  
-                                * 
+                                *
+                                *
                                     Children aligment
-                                * 
-                                * 
+                                *
+                                *
                                 */
                                 if (gridConfig.rowConfig[i].offset) {
                                     if (gridConfig.rowConfig[i].offset[breakpoint]) {
@@ -145,7 +146,7 @@ export abstract class BlockComponent {
                     }
                     console.log('size', size);
                     this.parentBlock.nativeElement.children[i].classList.add(...size);
-                    //this.parentBlock.nativeElement.children[i]['style'].border = '1px solid';
+                    // this.parentBlock.nativeElement.children[i]['style'].border = '1px solid';
                 }
             } else if (blockRef.config instanceof Flex) {
                 this.parentBlock.nativeElement.classList.add(
@@ -153,7 +154,7 @@ export abstract class BlockComponent {
                     blockRef.config.contentPosition.flex
                 );
                 this.parentBlock.nativeElement.style.height = '100%';
-                //this.parentBlock.nativeElement.style.border = '1px solid';
+                // this.parentBlock.nativeElement.style.border = '1px solid';
             } else if (blockRef.config instanceof FlexGrid) {
             } else if (blockRef.config instanceof Block) {
             }

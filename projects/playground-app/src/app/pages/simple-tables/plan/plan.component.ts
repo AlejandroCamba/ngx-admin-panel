@@ -22,7 +22,7 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
         } else {
             confirm.reject();
         }
-    };
+    }
 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
@@ -34,7 +34,7 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
         } else {
             event.confirm.reject();
         }
-    };
+    }
 
     onSaveConfirm = ({newData, confirm}) => {
       if (window.confirm('Are you sure you want to update?')) {
@@ -48,7 +48,7 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
     } else {
         confirm.reject();
     }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Plans');

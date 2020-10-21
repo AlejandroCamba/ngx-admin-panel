@@ -6,11 +6,11 @@ import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
-import { AnalyticsService } from './utils/analytics.service'
-import { LayoutService } from './utils/layout.service'
-import { PlayerService } from './utils/player.service'
-import { SeoService } from './utils/seo.service'
-import { StateService } from './utils/state.service'
+import { AnalyticsService } from './utils/analytics.service';
+import { LayoutService } from './utils/layout.service';
+import { PlayerService } from './utils/player.service';
+import { SeoService } from './utils/seo.service';
+import { StateService } from './utils/state.service';
 
 
 import { UserData } from './data/users';
@@ -114,10 +114,10 @@ export const NB_CORE_PROVIDERS = [
     ],
     forms: {
       login: {
-        socialLinks: socialLinks,
+        socialLinks,
       },
       register: {
-        socialLinks: socialLinks,
+        socialLinks,
       },
     },
   }).providers,

@@ -25,7 +25,7 @@ export abstract class AdminTableComponent {
   }
 
   loadTableColumns = (settings) => {
-    this.tableComponent.settings = {...this.tableComponent.settings, ...{columns: settings}}
+    this.tableComponent.settings = {...this.tableComponent.settings, ...{columns: settings}};
   }
 
   setTitle = (title) => {

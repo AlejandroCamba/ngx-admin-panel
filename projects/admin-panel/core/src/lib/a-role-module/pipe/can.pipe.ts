@@ -1,12 +1,12 @@
-import { Pipe, ChangeDetectorRef } from '@angular/core';
+import { Pipe, ChangeDetectorRef, PipeTransform, OnDestroy } from '@angular/core';
 import { CanPipe } from '@casl/angular';
 import { noop } from 'rxjs';
 import { ARoleService } from '../a-role.service';
 import { Ability } from '@casl/ability';
 
 @Pipe({ name: 'can', pure: false })
-export class MyCanPipe extends CanPipe {
-    protected unsubscribeFromAbility: Function = noop;
+export class MyCanPipe extends CanPipe implements PipeTransform, OnDestroy {
+    protected unsubscribeFromAbility: any = noop;
 
     constructor(protected ability: Ability, protected cd: ChangeDetectorRef) {
         super(ARoleService.abilityInstance, cd);

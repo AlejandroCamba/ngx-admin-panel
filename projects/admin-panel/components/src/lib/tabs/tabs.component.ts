@@ -25,7 +25,7 @@ const BootstrapClass = {
 };
 
 @Component({
-  selector: 'admin-tab-menu',
+  selector: 'ngx-admin-tab-menu',
   template: `
     <div block [config]="childPositionConfig">
       <div [ngStyle]="tabCssStyle.menuStyle">
@@ -80,7 +80,7 @@ export class TabsComponent extends BlockComponent
   }
 
   ngAfterContentInit() {
-    let activeTabs = this.tabs.filter(tab => tab.isTabActive());
+    const activeTabs = this.tabs.filter(tab => tab.isTabActive());
 
     if (activeTabs.length === 0) {
       this.selectTab(this.tabs.first);
@@ -88,7 +88,7 @@ export class TabsComponent extends BlockComponent
   }
 
   selectTab(tab: any) {
-    this.tabs.toArray().forEach(tab => tab.setActive(false));
+    this.tabs.toArray().forEach(tabDetail => tabDetail.setActive(false));
     tab.setActive(true);
   }
 

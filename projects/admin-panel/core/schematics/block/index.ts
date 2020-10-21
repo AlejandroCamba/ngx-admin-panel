@@ -50,9 +50,9 @@ export function blockComponent(options: MyBlockSchema): Rule {
       const content: Buffer | null = tree.read(
         `src/app/${options.adminView}-view/${options.adminView}-view.component.html`
       );
-      let strContent: string = '';
+      let strContent = '';
 
-      if (content) strContent = content.toString();
+      if (content) { strContent = content.toString(); }
 
       let appendIndex = null;
 
@@ -75,36 +75,36 @@ export function blockComponent(options: MyBlockSchema): Rule {
       );
 
 
-      const dirTree = require("directory-tree");
+      const dirTree = require('directory-tree');
       const filteredTree = dirTree(project.sourceRoot);
-  
+
       const moduleFinder = new ModuleFinder(`${options.adminView}-view`);
 
       moduleFinder.rFindPossibleModulesToUpdate(filteredTree.children[0]);
       moduleFinder.findModuleToUpdate(`src/app/${strings.dasherize(options.adminView)}-view/tabs`);
 
       const containerModule: Buffer | null = tree.read(moduleFinder.whatToUpdate);
-      let containerModuleContent: string = "";
-  
-      if (containerModule) containerModuleContent = containerModule.toString();
-  
+      let containerModuleContent = '';
+
+      if (containerModule) { containerModuleContent = containerModule.toString(); }
+
       const toAppend =
-      containerModuleContent.indexOf("[", containerModuleContent.indexOf("declarations")) + 1;
+      containerModuleContent.indexOf('[', containerModuleContent.indexOf('declarations')) + 1;
       const importStatement = `\n \xa0\xa0${strings.classify(options.name)}Component,`;
-  
+
       let moduleUpdatedContent =
       containerModuleContent.slice(0, toAppend) +
         importStatement +
         containerModuleContent.slice(toAppend);
-  
-        moduleUpdatedContent =
+
+      moduleUpdatedContent =
         `import { ${strings.classify(
           options.name
         )}Component } from './tabs/${strings.dasherize(
           options.name
         )}/${strings.dasherize(options.name)}.component'\n` +
         moduleUpdatedContent;
-  
+
       tree.overwrite(moduleFinder.whatToUpdate, moduleUpdatedContent);
 
     }

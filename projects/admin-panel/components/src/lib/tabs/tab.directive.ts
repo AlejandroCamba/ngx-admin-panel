@@ -7,10 +7,11 @@
 import { Input, Directive, ElementRef } from '@angular/core';
 
 @Directive({
-    selector: '[admin-tab]'
+    selector: '[ngxAdminTab]'
 })
 export class TabDirective {
-    @Input('tabTitle') title: string;
+    // tslint:disable-next-line:no-input-rename
+    @Input('tabTitle') tabTitle: string;
     private active = false;
 
     constructor(private elementRef: ElementRef) {

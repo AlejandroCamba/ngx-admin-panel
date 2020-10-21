@@ -30,16 +30,16 @@ export interface YAxisConfig {
     };
 }
 
-type LineData = {
-    data: number[]
+interface LineData {
+    data: number[];
     backgroundColor?: string[];
     borderColor?: string[];
     borderWidth?: number;
     label?: string;
     borderDash: number[];
-    lineTension: number,
-    pointRadius: number,
-    fill: boolean | string,
+    lineTension: number;
+    pointRadius: number;
+    fill: boolean | string;
 }
 
 
@@ -52,8 +52,8 @@ export interface BarOptionsConfig {
     };
 }
 
-type BarData = { 
-    data: number[]
+interface BarData {
+    data: number[];
     backgroundColor?: string[];
     borderColor?: string[];
     borderWidth?: number;
@@ -69,13 +69,13 @@ export interface PieOptionsConfig {
 }
 
 
-type PieData = {
-    data: number[]
+interface PieData {
+    data: number[];
     backgroundColor?: string[];
     borderColor?: string[];
     borderWidth?: number;
 }
 
 export interface DataSetConfig {
-    config:  LineData[] | PieData[] | BarData[];
+    config: LineData[] | PieData[] | BarData[];
 }

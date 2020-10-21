@@ -12,7 +12,7 @@
             },
             "root": "projects/playground-app",
             "sourceRoot": "projects/playground-app/src",
-            "prefix": "app",
+            "prefix": "ngx",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -110,7 +110,7 @@
                             "projects/playground-app/tsconfig.spec.json",
                             "projects/playground-app/e2e/tsconfig.json"
                         ],
-                        "exclude": ["**/node_modules/**"]
+                        "exclude": ["**/node_modules/**", "**/projects/playground-app/**"]
                     }
                 },
                 "e2e": {
@@ -198,7 +198,11 @@
                             "projects/admin-panel/components/tsconfig.lib.json",
                             "projects/admin-panel/components/tsconfig.spec.json"
                         ],
-                        "exclude": ["**/node_modules/**"]
+                        "exclude": [
+                            "**/node_modules/**",
+                            "**/projects/admin-panel/components/src/lib/@core/**",
+                            "**/projects/admin-panel/components/src/lib/@theme/**"
+                        ]
                     }
                 }
             }

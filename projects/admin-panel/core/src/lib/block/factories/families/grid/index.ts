@@ -9,15 +9,15 @@ type ColSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 type Col = HideCol | ResizeCol;
 
-type HideCol = {
+interface HideCol {
     hide: boolean;
-};
+}
 
-type ResizeCol = {
+interface ResizeCol {
     resizeTo: ColSize;
-};
+}
 
-type RowConfig = {
+interface RowConfig {
     defaultSize: ColSize;
     xs?: Col;
     sm?: Col;
@@ -32,19 +32,19 @@ type RowConfig = {
         xl?: ColSize;
     };
     align?: ColAlign;
-};
+}
 
-type GridShortcut = {
+interface GridShortcut {
     shortcut?: 'replay-last-col' | 'replay-first-col' | 'fill-with-auto';
-};
+}
 
-type Justify = {
+interface Justify {
     justify?: import('../flex/index').FlexValues;
-};
+}
 
-type RowAlign = {
+interface RowAlign {
     align: 'align-items-start' | 'align-items-center' | 'align-items-end';
-};
+}
 
 type ColAlign = 'align-self-start' | 'align-self-center' | 'align-self-end';
 

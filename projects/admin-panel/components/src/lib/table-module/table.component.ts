@@ -7,7 +7,7 @@ import { OnDelete } from './interfaces/on-delete.interface';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
-  selector: 'admin-table',
+  selector: 'ngx-admin-table',
   template: `
   <nb-card>
     <nb-card-header>
@@ -15,9 +15,9 @@ import { LocalDataSource } from 'ng2-smart-table';
     </nb-card-header>
 
     <nb-card-body>
-        <ng2-smart-table 
-        [settings]="settings" 
-        [source]="source" 
+        <ng2-smart-table
+        [settings]="settings"
+        [source]="source"
         (deleteConfirm)="onDeleteConfirm($event)"
         (createConfirm)="onCreateConfirm($event)"
         (editConfirm)="onSaveConfirm($event)">
@@ -53,7 +53,7 @@ export class TableComponent implements OnCreate, OnDelete, OnUpdate, OnChanges {
   source: LocalDataSource;
 
   onDeleteConfirm = (evt: Event) => {};
-  
+
   onCreateConfirm = (evt: Event) => {};
 
   onSaveConfirm = (evt: Event) => {};

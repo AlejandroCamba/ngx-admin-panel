@@ -16,7 +16,7 @@ export type ContentPosition<T extends PStructures> = Record<
         : never
 >;
 
-/* 
+/*
 
 -------------- USER UTILS --------------
 

@@ -23,7 +23,7 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
         } else {
             confirm.reject();
         }
-    };
+    }
 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
@@ -35,7 +35,7 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
         } else {
             event.confirm.reject();
         }
-    };
+    }
 
     onSaveConfirm = ({newData, confirm}) => {
       if (window.confirm('Are you sure you want to update?')) {
@@ -49,7 +49,7 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
     } else {
         confirm.reject();
     }
-    };
+    }
 
     ngAfterViewInit() {
         this.setTitle('Relations');
@@ -115,6 +115,6 @@ export class ConsoleServerGameComponent extends AdminTableComponent implements A
                 })
             );
             console.log('result: ', result);
-        })
+        });
     }
 }

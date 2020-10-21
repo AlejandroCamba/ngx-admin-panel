@@ -7,7 +7,7 @@ import { Block } from '../factories/families/block/block.model';
 import { PositionFactory } from '../factories/position.factory';
 
 @Directive({
-    selector: '[block]'
+    selector: '[ngxAdminBlock]'
 })
 export class BlockDirective {
     @Input() config: Grid | Flex | FlexGrid | Block = PositionFactory(new Grid());

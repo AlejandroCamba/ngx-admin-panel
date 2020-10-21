@@ -7,8 +7,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   imports: [
-    CommonModule, 
-    BlockModule,         
+    CommonModule,
+    BlockModule,
     Ng2SmartTableModule, // NECESARIO PARA SMART TABLES
     NbCardModule,        // NECESARIO PARA SMART TABLES
     NbTreeGridModule,    // NECESARIO PARA SMART TABLES

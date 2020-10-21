@@ -10,19 +10,19 @@ export class AdminChart {
             type: this.type,
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: configutarions.get('dataset')['config'],
+                datasets: configutarions.get('dataset').config,
             },
             options: {
                 scales: {
-                    yAxes: configutarions.get('yAxes') ? configutarions.get('yAxes')['config']['yAxes'] : [],
-                    xAxes: configutarions.get('xAxes') ? configutarions.get('xAxes')['config']['xAxes'] : [],
+                    yAxes: configutarions.get('yAxes') ? configutarions.get('yAxes').config.yAxes : [],
+                    xAxes: configutarions.get('xAxes') ? configutarions.get('xAxes').config.xAxes : [],
                 },
                 legend: {
                     display: false,
                 },
                 tooltips: {
                     callbacks: {
-                        label: function (tooltipItem) {
+                        label(tooltipItem) {
                             return tooltipItem.yLabel;
                         },
                     },

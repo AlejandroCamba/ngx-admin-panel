@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  post(path: string, body: Object = {}, headers?): Observable<any> {
+  post(path: string, body = {}, headers?): Observable<any> {
     return this.http.post(
       `${environment.apiUrl}${path}`,
       body,
@@ -17,7 +17,7 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  put(path: string, body: Object = {}): Observable<any> {
+  put(path: string, body = {}): Observable<any> {
     return this.http.put(
       `${environment.apiUrl}${path}`,
       JSON.stringify(body),
@@ -49,7 +49,7 @@ export class ApiService {
   }
 
   private formatErrors(error: any) {
-    if (error.status == 403) {
+    if (error.status === 403) {
       localStorage.clear();
     }
     return  throwError(error.error);

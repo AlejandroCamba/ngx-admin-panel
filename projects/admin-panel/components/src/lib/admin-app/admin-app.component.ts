@@ -23,7 +23,7 @@ import { Observable, Subject } from 'rxjs';
 export class AdminAppComponent {
     @Input() public menu?: import('@nebular/theme').NbMenuItem[];
     @Input() public fakeRouterContainer: ViewContainerRef;
-    public fakeRouterInitialized$? = new Subject(); 
+    public fakeRouterInitialized$ ? = new Subject();
 
     dispatchTest = (container: ViewContainerRef) => {
       this.fakeRouterContainer = container;

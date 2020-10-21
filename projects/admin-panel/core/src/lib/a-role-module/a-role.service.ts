@@ -12,8 +12,6 @@ type RoleRules = Record<
 
 @Injectable()
 export class ARoleService {
-    private workFlow$ = new BehaviorSubject<RoleRules>({});
-    static abilityInstance: Ability = null;
 
     constructor(private ability: Ability) {}
 
@@ -22,37 +20,21 @@ export class ARoleService {
         this.workFlow$.next(workflowRules);
         console.log('reglass de verdadd', this.ability.rules);
     }
+    static abilityInstance: Ability = null;
+    private workFlow$ = new BehaviorSubject<RoleRules>({});
 
-    public loadRoleWorkflow(role) {
-        this.workFlow$.pipe(tap(() => console.log('actualizado'))).subscribe(workflow => {
-            console.log(workflow[role].actions);
-            ARoleService.abilityInstance = ARoleService.createAbility(role, workflow);
-            console.log('rules', this.ability.rules);
-        });
-        console.log('reglass de verdadd', this.ability.rules);
-    }
-
-    public defineWorkflowRules(role: string, workflowRules: RoleRules) {
-        const { can, rules } = AbilityBuilder.extract();
-
-        can('create', workflowRules[role].actions);
-
-        console.log('rules: ', rules);
-        return rules;
-    }
-
-    static createAbility(role: string = 'admin', workflow?: RoleRules) {
-        const defineAbilitiesWithWorkflow = role => {
+    static createAbility = (role: string = 'admin', workflow?: RoleRules) => {
+        const defineAbilitiesWithWorkflow = userRole => {
             const { can, rules } = AbilityBuilder.extract();
 
-            workflow[role].actions.forEach(rule => {
+            workflow[userRole].actions.forEach(rule => {
                 can(rule.actions, rule.subject);
             });
 
             return rules;
         };
 
-        const defineAbilitiesFor = role => {
+        const defineAbilitiesFor = defaultRole => {
             const { can, rules } = AbilityBuilder.extract();
 
             can('manage', 'all');
@@ -79,8 +61,21 @@ export class ARoleService {
             }
         );
 
-        console.log('pruebaa a a a', ARoleService.abilityInstance.can('delete', 'AppComponent'));
-
         return ARoleService.abilityInstance;
+    }
+
+    public loadRoleWorkflow(role) {
+        this.workFlow$.pipe(tap(() => console.log('actualizado'))).subscribe(workflow => {
+            console.log(workflow[role].actions);
+            ARoleService.abilityInstance = ARoleService.createAbility(role, workflow);
+        });
+    }
+
+    public defineWorkflowRules(role: string, workflowRules: RoleRules) {
+        const { can, rules } = AbilityBuilder.extract();
+
+        can('create', workflowRules[role].actions);
+
+        return rules;
     }
 }
