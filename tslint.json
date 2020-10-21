@@ -2,7 +2,6 @@
     "extends": "tslint:recommended",
     "rulesDirectory": ["codelyzer"],
     "rules": {
-      "no-unbound-method": true,
       "no-conditional-assignment": true,
       "no-sparse-arrays": true,
       "no-invalid-template-strings": true,

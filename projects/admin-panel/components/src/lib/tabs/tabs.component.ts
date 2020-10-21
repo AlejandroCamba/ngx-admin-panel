@@ -27,7 +27,7 @@ const BootstrapClass = {
 @Component({
   selector: 'ngx-admin-tab-menu',
   template: `
-    <div block [config]="childPositionConfig">
+    <div ngxAdminBlock [config]="childPositionConfig">
       <div [ngStyle]="tabCssStyle.menuStyle">
         <ul class="nav" [ngClass]="tabsPosition">
           <li

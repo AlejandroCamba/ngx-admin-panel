@@ -4,7 +4,7 @@ import { GRID_CONFIG } from './grid-config.const';
 
 @Component({
     selector: 'simple-table-layout',
-    template: ` <div block [config]="childPositionConfig">
+    template: ` <div ngxAdminBlock [config]="childPositionConfig">
         <ng-content></ng-content>
     </div>`,
 })

@@ -23,7 +23,7 @@ export class ARoleService {
     static abilityInstance: Ability = null;
     private workFlow$ = new BehaviorSubject<RoleRules>({});
 
-    static createAbility = (role: string = 'admin', workflow?: RoleRules) => {
+    static createAbility(role: string = 'admin', workflow?: RoleRules) {
         const defineAbilitiesWithWorkflow = userRole => {
             const { can, rules } = AbilityBuilder.extract();
 
