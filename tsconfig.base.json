@@ -15,8 +15,8 @@
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2018", "dom"],
         "paths": {
-            "@admin-panel/core": ["dist/admin-panel/core"],
-            "@admin-panel/components": ["dist/admin-panel/components"]
+            "@ngx-admin-panel/core": ["dist/admin-panel/core"],
+            "@ngx-admin-panel/components": ["dist/admin-panel/components"]
         }
     },
     "angularCompilerOptions": {

@@ -5,8 +5,8 @@
     "lib": {
         "entryFile": "src/public-api.ts",
         "umdModuleIds": {
-            "@admin-panel/components": "@admin-panel/components",
-            "@admin-panel/core": "@admin-panel/core"
+            "@ngx-admin-panel/components": "@ngx-admin-panel/components",
+            "@ngx-admin-panel/core": "@ngx-admin-panel/core"
         }
     }
 }

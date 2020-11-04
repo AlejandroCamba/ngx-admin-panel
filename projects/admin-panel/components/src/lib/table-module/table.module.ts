@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BlockModule } from '@admin-panel/core';
+import { BlockModule } from '@ngx-admin-panel/core';
 import { TableComponent } from './table.component';
 import { CommonModule } from '@angular/common';
 import { NbTreeGridModule, NbCardModule, NbIconModule } from '@nebular/theme';

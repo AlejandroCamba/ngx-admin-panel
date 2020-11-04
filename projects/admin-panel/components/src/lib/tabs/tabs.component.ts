@@ -16,7 +16,7 @@ import {
 import { TabDirective } from './tab.directive';
 import { GRID_CONFIG } from './grid-config.const';
 
-import { BlockComponent, Grid, PositionFactory } from '@admin-panel/core';
+import { BlockComponent, Grid, PositionFactory } from '@ngx-admin-panel/core';
 
 const BootstrapClass = {
   topLeft: '',

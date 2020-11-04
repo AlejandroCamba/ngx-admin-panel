@@ -1,6 +1,6 @@
 {
-    "name": "@admin-panel/core",
-    "version": "0.0.1",
+    "name": "@ngx-admin-panel/core",
+    "version": "0.0.5",
     "author": "Alejandro Camba",
     "repository": {
         "type": "git",
@@ -24,6 +24,7 @@
 },
     "dependencies": {
         "bootstrap": "^4.4.1",
+        "@angular/cdk": "^9.1.2",
         "jquery": "^3.5.1",
         "chart.js": "^2.9.3",
         "ngx-custom-validators": "^9.0.1",

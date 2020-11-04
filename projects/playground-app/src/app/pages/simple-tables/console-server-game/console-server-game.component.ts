@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AdminTableComponent } from '@admin-panel/components';
+import { AdminTableComponent } from '@ngx-admin-panel/components';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../../http/services/api.service';
 import { concatAll, map, concatMap, tap } from 'rxjs/operators';

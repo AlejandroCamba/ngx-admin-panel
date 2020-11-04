@@ -127,7 +127,7 @@
                 }
             }
         },
-        "@admin-panel/core": {
+        "@ngx-admin-panel/core": {
             "projectType": "library",
             "root": "projects/admin-panel/core",
             "sourceRoot": "projects/admin-panel/core/src",
@@ -165,7 +165,7 @@
                 }
             }
         },
-        "@admin-panel/components": {
+        "@ngx-admin-panel/components": {
             "projectType": "library",
             "root": "projects/admin-panel/components",
             "sourceRoot": "projects/admin-panel/components/src",
@@ -208,5 +208,5 @@
             }
         }
     },
-    "defaultProject": "@admin-panel/core"
+    "defaultProject": "@ngx-admin-panel/core"
 }

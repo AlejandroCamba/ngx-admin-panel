@@ -3,12 +3,12 @@ import { NgModule, Injectable } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { TabsModule, TableModule } from '@admin-panel/components';
-import { BlockModule } from '@admin-panel/core';
+import { TabsModule, TableModule } from '@ngx-admin-panel/components';
+import { BlockModule } from '@ngx-admin-panel/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { AdminAppModule, LazyLoaderService } from '@admin-panel/components';
+import { AdminAppModule, LazyLoaderService } from '@ngx-admin-panel/components';
 import { RouterModule, Router } from '@angular/router';
 import { AdminAppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';

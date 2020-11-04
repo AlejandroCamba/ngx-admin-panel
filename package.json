@@ -1,7 +1,15 @@
 {
   "name": "library-workspace",
   "version": "0.1.0",
-  "publishConfig": { "access": "public", "branches": ["master"] },
+  "publishConfig": {
+    "access": "public",
+    "branches": [
+      "master"
+    ]
+  },
+  "release": {
+    "branches": ["master"]
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,9 +17,9 @@
     "test": "ng test",
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
-    "build-all": "ng build @admin-panel/core && npm run copy-core-definitions && ng build @admin-panel/components && npm run copy-components-definitions",
-    "build-core": "ng build @admin-panel/core && npm run copy-core-definitions",
-    "build-components": "ng build @admin-panel/components && npm run copy-components-definitions",
+    "build-all": "ng build @ngx-admin-panel/core && npm run copy-core-definitions && ng build @ngx-admin-panel/components && npm run copy-components-definitions",
+    "build-core": "ng build @ngx-admin-panel/core && npm run copy-core-definitions",
+    "build-components": "ng build @ngx-admin-panel/components && npm run copy-components-definitions",
     "copy-core-definitions": "cpx \"projects/admin-panel/core/types/**/*.d.ts\" \"dist/admin-panel/core/types/\"",
     "copy-components-definitions": "cpx \"projects/admin-panel/components/types/**/*.d.ts\" \"dist/admin-panel/components/types\"",
     "doc": "jsdoc -c jsdoc.json"

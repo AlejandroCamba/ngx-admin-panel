@@ -5,7 +5,7 @@
     "lib": {
         "entryFile": "src/public-api.ts",
         "umdModuleIds": {
-            "@admin-panel/core": "@admin-panel/core"
+            "@ngx-admin-panel/core": "@ngx-admin-panel/core"
         }
     }
 }

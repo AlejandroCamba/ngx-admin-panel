@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ChangeDetectionStrategy } from '@angular/core';
-import { AdminApp, AdminMainDirective, LazyLoaderService } from '@admin-panel/components';
+import { AdminApp, AdminMainDirective, LazyLoaderService } from '@ngx-admin-panel/components';
 import { NbMenuItem } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';

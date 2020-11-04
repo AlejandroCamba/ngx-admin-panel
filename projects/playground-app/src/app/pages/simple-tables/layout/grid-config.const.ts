@@ -1,4 +1,4 @@
-import { Grid } from '@admin-panel/core';
+import { Grid } from '@ngx-admin-panel/core';
 
 export const GRID_CONFIG = {
         contentPosition: {

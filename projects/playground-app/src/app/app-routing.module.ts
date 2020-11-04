@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ADMIN_ROUTES, PagesComponent } from '@admin-panel/components';
+import { ADMIN_ROUTES, PagesComponent } from '@ngx-admin-panel/components';
 
 @NgModule({
     imports: [

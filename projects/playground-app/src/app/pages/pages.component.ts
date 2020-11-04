@@ -1,7 +1,7 @@
 import { Component, Optional } from '@angular/core';
 
 import { MENU_ITEMS } from './pages-menu';
-import { AdminAppComponent } from '@admin-panel/components';
+import { AdminAppComponent } from '@ngx-admin-panel/components';
 
 @Component({
   selector: 'ngx-pages',

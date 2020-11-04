@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { AdminTableComponent } from '@admin-panel/components';
+import { AdminTableComponent } from '@ngx-admin-panel/components';
 import { ApiService } from '../../http/services/api.service';
 import { fromEvent, Observable } from 'rxjs';
 import { concatMap, filter, debounceTime } from 'rxjs/operators';

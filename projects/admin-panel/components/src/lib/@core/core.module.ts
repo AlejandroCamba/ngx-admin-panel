@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
@@ -6,11 +6,11 @@ import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
-import { AnalyticsService } from './utils/analytics.service';
-import { LayoutService } from './utils/layout.service';
-import { PlayerService } from './utils/player.service';
-import { SeoService } from './utils/seo.service';
-import { StateService } from './utils/state.service';
+import { AnalyticsService } from './utils/analytics.service'
+import { LayoutService } from './utils/layout.service'
+import { PlayerService } from './utils/player.service'
+import { SeoService } from './utils/seo.service'
+import { StateService } from './utils/state.service'
 
 
 import { UserData } from './data/users';
@@ -94,10 +94,12 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
 ];
 
+
+Injectable()
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
-    return observableOf('guest');
+    return observableOf('user');
   }
 }
 

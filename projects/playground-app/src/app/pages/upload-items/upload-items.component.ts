@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { tableData } from '../../data/smart-table';
-import { AdminTableComponent } from '@admin-panel/components';
+import { AdminTableComponent } from '@ngx-admin-panel/components';
 import { ApiService } from '../../http/services/api.service';
 import { fromEvent } from 'rxjs';
 import { map, concatMap, filter, debounceTime } from 'rxjs/operators';

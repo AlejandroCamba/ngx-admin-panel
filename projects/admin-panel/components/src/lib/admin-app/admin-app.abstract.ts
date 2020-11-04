@@ -4,6 +4,8 @@ import {
     ComponentFactoryResolver,
     ComponentRef,
     Type,
+    Injectable,
+    Directive,
 } from '@angular/core';
 import { AdminMainDirective } from './directives/admin-main.directive';
 import { AdminAppComponent } from './admin-app.component';
@@ -15,6 +17,7 @@ import { filter } from 'rxjs/operators';
 /**
  * @description - A class to be extended by angular Components. It encapsulates the core methods to create admin dashboards
  */
+@Directive()
 export abstract class AdminApp {
     @ViewChild(AdminMainDirective, { read: ViewContainerRef })
     private appSelector: ViewContainerRef;

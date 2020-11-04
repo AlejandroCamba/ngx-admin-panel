@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { BlockComponent, PositionFactory, Grid, StructureType } from '@admin-panel/core';
+import { BlockComponent, PositionFactory, Grid, StructureType } from '@ngx-admin-panel/core';
 import { GRID_CONFIG } from './grid-config.const';
 
 @Component({

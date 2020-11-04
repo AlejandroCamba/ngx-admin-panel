@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { BlockComponent } from '@admin-panel/core';
+import { BlockComponent } from '@ngx-admin-panel/core';
 
 @Component({
   selector: 'upload-prices-table-layout',
