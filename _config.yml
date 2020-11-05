@@ -1,7 +1,7 @@
 # ----
 # Site
 
-title: Edition Template
+title: '@ngx-admin-panel'
 url: "https://long-pig.cloudvent.net"
 baseurl:
 google_analytics_key:
@@ -15,9 +15,9 @@ author:
   email:
   twitter: # twitter username without the @ symbol
 social:
-  name: Edition Template
+  name: '@ngx-admin-panel'
   links:
-    - https://github.com/CloudCannon/edition-jekyll-template
+    - https://github.com/AlejandroCamba/ngx-admin-panel
 
 # -----
 # Build

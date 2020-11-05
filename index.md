@@ -2,24 +2,12 @@
 title: Welcome
 ---
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+Angular admin panels made easier. After plenty of admin panels developed during my carreer i finally started to improve their creation process by speeding it up and take some programmer-bound subjective tasks out of the way. 
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
 
-### Getting Started
+> Admin Panel design and styles forked from [ngx-admin](https://akveo.github.io/ngx-admin/), an angular template built with [Nebular UI ](https://akveo.github.io/nebular/)
 
-Getting a message sent is quick and easy with ChatApp:
-
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
-
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
 
 ### Features
 
