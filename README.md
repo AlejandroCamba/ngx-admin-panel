@@ -1,6 +1,6 @@
 # LibraryWorkspace
 
-This was actually a thesis project but since it was really useful and a time saver specially for personal projects, i updated it to use @akveo Ngx-admin in combination with @Nebular css library, this framework looks great and it's pretty straight forward as well, (One of my personal project uses it)[https://www.theelderscrollsonline.gameitemprices.com], if something is missing (there are plenty of missing features, i'll be adding some issues and features when i have some time), feel free to PR it.
+This was actually a thesis project but since it was really useful and a time saver specially for personal projects, i updated it to use @akveo Ngx-admin in combination with @Nebular css library, this framework looks great and it's pretty straight forward as well, [One of my personal project uses it](https://www.theelderscrollsonline.gameitemprices.com), if something is missing (there are plenty of missing features, i'll be adding some issues and features when i have some time), feel free to PR it.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.12.
 
