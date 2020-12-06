@@ -5,7 +5,7 @@ import { ApiService } from '../../../http/services/api.service';
 
 @Component({
     selector: 'server-table',
-    template: `<admin-table></admin-table>`,
+    template: `<ngx-admin-table></ngx-admin-table>`,
 })
 export class ServerComponent extends AdminTableComponent implements AfterViewInit {
     constructor(private apiService: ApiService) {
@@ -13,11 +13,11 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
     }
 
     onDeleteConfirm = ({data: {id}, confirm}) => {
-        console.log(event);
         if (window.confirm('Are you sure you want to delete?')) {
+            this.loadingOn();
             this.apiService.delete(`game-server/${id}`).subscribe((response) => {
-
-            });
+                this.handleSuccessReq('Server deleted succesfully');
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
             confirm.resolve();
         } else {
             confirm.reject();
@@ -27,10 +27,11 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
             delete event.newData.id;
+            this.loadingOn();
             this.apiService.post(`game-server`, event.newData).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('Server created succesfully');
                 event.confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             event.confirm.reject();
         }
@@ -40,11 +41,11 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
       if (window.confirm('Are you sure you want to update?')) {
         const dataCopy = {...newData};
         delete(dataCopy.id);
-        console.log('data copy', dataCopy);
+        this.loadingOn();
         this.apiService.put(`game-server/${newData.id}`, dataCopy).subscribe((response) => {
-            console.log(response);
+            this.handleSuccessReq('Server updated succesfully');
             confirm.resolve();
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     } else {
         confirm.reject();
     }
@@ -64,7 +65,6 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
         });
 
         this.apiService.get('game-server').subscribe((consoles) => {
-            console.log(consoles);
             this.loadDataSource(
                 consoles.map((gameConsole) => {
                     delete gameConsole.createdAt;
@@ -72,6 +72,6 @@ export class ServerComponent extends AdminTableComponent implements AfterViewIni
                     return gameConsole;
                 })
             );
-        });
+        },  (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     }
 }

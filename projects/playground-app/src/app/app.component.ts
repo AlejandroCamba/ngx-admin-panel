@@ -44,23 +44,22 @@ const MENU_ITEMS: NbMenuItem[] = [
         title: 'Upload Items',
         link: 'pages/upload-items',
     },
-    {
-        icon: 'shopping-cart-outline',
-        title: 'Orders',
-        link: 'pages/orders',
-    },
-    {
-        icon: 'credit-card-outline',
-        title: 'Payments',
-        link: 'pages/payments',
-    }
+    // {
+    //     icon: 'shopping-cart-outline',
+    //     title: 'Orders',
+    //     link: 'pages/orders',
+    // },
+    // {
+    //     icon: 'credit-card-outline',
+    //     title: 'Payments',
+    //     link: 'pages/payments',
+    // }
 ];
 
 @Component({
     selector: 'ngx-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent extends AdminApp implements AfterViewInit {
     public menu = MENU_ITEMS;
@@ -72,8 +71,8 @@ export class AppComponent extends AdminApp implements AfterViewInit {
         this.registerRoute('/pages/simple-tables', SimpleTablesComponent);
         this.registerRoute('/pages/upload-prices', UploadPricesComponent);
         this.registerRoute('/pages/upload-items', UploadItemsComponent);
-        this.registerRoute('/pages/orders', OrdersTableComponent);
-        this.registerRoute('/pages/payments', PaymentsTableComponent);
+        // this.registerRoute('/pages/orders', OrdersTableComponent);
+        // this.registerRoute('/pages/payments', PaymentsTableComponent);
         this.build();
 
         // this.addMenuItem([{

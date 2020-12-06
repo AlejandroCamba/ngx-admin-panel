@@ -1,5 +1,5 @@
 <ng-container *ngIf="fileUploaded === true">
-  <nb-alert status="{{alert_type}}" closable>
+  <nb-alert status="{{alert_type}}" closable (close)="onClose()">
     {{alert_message}}
   </nb-alert>
 </ng-container>

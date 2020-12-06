@@ -33,7 +33,6 @@ export class UploadPricesComponent extends AdminTableComponent implements AfterV
     ngAfterViewInit() {
         console.log(this.submitPrices.nativeElement);
         this.submitPrices$ = fromEvent(this.submitPrices.nativeElement, 'click').pipe(
-            debounceTime(2000),
             filter(() => {
                 if (!/\d/.test(this.game_console_server_relation)) {
                     this.fileUploaded = true;
@@ -42,7 +41,6 @@ export class UploadPricesComponent extends AdminTableComponent implements AfterV
                     this.alert_type = 'warning';
 
                     this.cdr.detectChanges();
-                    this.fileUploaded = false;
                 }
 
                 return /\d/.test(this.game_console_server_relation);
@@ -75,30 +73,24 @@ export class UploadPricesComponent extends AdminTableComponent implements AfterV
             this.fileUploaded = true;
             const responseString = JSON.stringify(response);
 
-            navigator.clipboard
-                .writeText(responseString)
-                .then(() => {
-                  this.fileUploaded = true;
-                  this.alert_message =
-                  'Fallback: Copying text command was Successful';
-                  this.alert_type = 'success';
+            this.fileUploaded = true;
+            this.alert_message =
+            'Item file was successfully uploaded!';
+            this.alert_type = 'success';
 
-                  this.cdr.detectChanges();
-                  this.fileUploaded = false;
-                })
-                .catch((error) => {
-                  this.fileUploaded = true;
-                  this.alert_message =
-                  'Error ocurred copying to clipboard ' + error;
-                  this.alert_type = 'danger';
-                  this.cdr.detectChanges();
-                  this.fileUploaded = false;
-                });
+        }, (err) => {
+            this.fileUploaded = true;
+            this.alert_message = err.message;
+            this.alert_type = 'danger';
         });
     }
 
     onFileChanged(event) {
         this.selectedFiles = event.target.files;
         this.fileToUpload = this.selectedFiles.item(0);
+    }
+
+    onClose() {
+        this.fileUploaded = false;
     }
 }

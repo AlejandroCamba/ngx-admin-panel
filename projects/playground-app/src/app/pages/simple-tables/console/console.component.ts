@@ -5,7 +5,7 @@ import { ApiService } from '../../../http/services/api.service';
 
 @Component({
     selector: 'console-table',
-    template: `<admin-table></admin-table>`,
+    template: `<ngx-admin-table></ngx-admin-table>`,
 })
 export class ConsoleComponent extends AdminTableComponent implements AfterViewInit {
     constructor(private apiService: ApiService) {
@@ -13,11 +13,11 @@ export class ConsoleComponent extends AdminTableComponent implements AfterViewIn
     }
 
     onDeleteConfirm = ({data: {id}, confirm}) => {
-        console.log(event);
         if (window.confirm('Are you sure you want to delete?')) {
+            this.loadingOn();
             this.apiService.delete(`game-console/${id}`).subscribe((response) => {
-
-            });
+                this.handleSuccessReq('Game Console Deleted Succesfully');
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
             confirm.resolve();
         } else {
             confirm.reject();
@@ -27,10 +27,11 @@ export class ConsoleComponent extends AdminTableComponent implements AfterViewIn
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
             delete event.newData.id;
+            this.loadingOn();
             this.apiService.post(`game-console`, event.newData).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('Game Console Created Succesfully');
                 event.confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             event.confirm.reject();
         }
@@ -40,11 +41,12 @@ export class ConsoleComponent extends AdminTableComponent implements AfterViewIn
       if (window.confirm('Are you sure you want to update?')) {
         const dataCopy = {...newData};
         delete(dataCopy.id);
+        this.loadingOn();
         console.log('data copy', dataCopy);
         this.apiService.put(`game-console/${newData.id}`, dataCopy).subscribe((response) => {
-            console.log(response);
+            this.handleSuccessReq('Game Console Updated Succesfully');
             confirm.resolve();
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     } else {
         confirm.reject();
     }
@@ -64,7 +66,6 @@ export class ConsoleComponent extends AdminTableComponent implements AfterViewIn
         });
 
         this.apiService.get('game-console').subscribe((consoles) => {
-            console.log(consoles);
             this.loadDataSource(
                 consoles.map((gameConsole) => {
                     delete gameConsole.createdAt;
@@ -72,6 +73,6 @@ export class ConsoleComponent extends AdminTableComponent implements AfterViewIn
                     return gameConsole;
                 })
             );
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     }
 }

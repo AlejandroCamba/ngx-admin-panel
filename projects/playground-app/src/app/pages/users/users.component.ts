@@ -17,7 +17,10 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
 
     onDeleteConfirm = ({ data: { id }, confirm }) => {
         if (window.confirm('Are you sure you want to delete?')) {
-            this.apiService.delete(`users/${id}`).subscribe((response) => {});
+            this.loadingOn();
+            this.apiService.delete(`users/${id}`).subscribe((response) => {
+                this.handleSuccessReq('User deleted successfully');
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
             confirm.resolve();
         } else {
             confirm.reject();
@@ -27,10 +30,12 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
             delete event.newData.id;
+            this.loadingOn();
+
             this.apiService.post(`users`, event.newData).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('User created succesfully');
                 event.confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             event.confirm.reject();
         }
@@ -46,11 +51,11 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
                 }
             });
 
-            console.log('resulted obj: ', dataCopy);
-
+            this.loadingOn();
             this.apiService.put(`users/${newData.id}`, dataCopy).subscribe((response) => {
+                this.handleSuccessReq('User updated succesfully');
                 confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             confirm.reject();
         }
@@ -104,18 +109,16 @@ export class UsersTableComponent extends AdminTableComponent implements AfterVie
                     },
                 },
             });
-        });
+        }, (err) => { this.handleErrorReq(err.message) });
 
         this.apiService.get('users/all').subscribe((users) => {
             this.loadDataSource(
                 users.map((user) => {
                     return { id: user.id, username: user.username, status: user.status, role: user.role.name };
                 }).filter((user) => {
-                  user.role !== 'ADMIN';
+                  return user.role !== 'ADMIN';
                 })
             );
-            this.cdr.markForCheck();
-            this.cdr.detectChanges();
-        });
+        }, (err) => { console.log(err); this.handleErrorReq(err.message) }, () => this.loadingOff());
     }
 }

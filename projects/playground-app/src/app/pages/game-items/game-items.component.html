@@ -3,6 +3,6 @@
       <nb-select [(selected)]="selectedItem" [placeholder]="selectedItem" (selectedChange)="changeOption($event)">
         <nb-option *ngFor="let option of games" [value]="option.id"> {{ option.name }}</nb-option>
     </nb-select>
-      <admin-table></admin-table>
+      <ngx-admin-table></ngx-admin-table>
     </div>
 </ngx-game-items-table-layout>

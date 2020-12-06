@@ -5,7 +5,7 @@ import { ApiService } from '../../../http/services/api.service';
 
 @Component({
     selector: 'plan-table',
-    template: `<admin-table></admin-table>`,
+    template: `<ngx-admin-table></ngx-admin-table>`,
 })
 export class PlanComponent extends AdminTableComponent implements AfterViewInit {
     constructor(private apiService: ApiService) {
@@ -13,11 +13,11 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
     }
 
     onDeleteConfirm = ({data: {id}, confirm}) => {
-        console.log(event);
         if (window.confirm('Are you sure you want to delete?')) {
+            this.loadingOn();
             this.apiService.delete(`plan/${id}`).subscribe((response) => {
-
-            });
+                this.handleSuccessReq('Plan deleted successfully');
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
             confirm.resolve();
         } else {
             confirm.reject();
@@ -27,10 +27,11 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
             delete event.newData.id;
+            this.loadingOn();
             this.apiService.post(`plan`, event.newData).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('Plan created successfully');
                 event.confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             event.confirm.reject();
         }
@@ -40,11 +41,11 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
       if (window.confirm('Are you sure you want to update?')) {
         const dataCopy = {...newData};
         delete(dataCopy.id);
-        console.log('data copy', dataCopy);
+        this.loadingOn();
         this.apiService.put(`plan/${newData.id}`, dataCopy).subscribe((response) => {
-            console.log(response);
+            this.handleSuccessReq('Plan updated successfully');
             confirm.resolve();
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     } else {
         confirm.reject();
     }
@@ -103,6 +104,6 @@ export class PlanComponent extends AdminTableComponent implements AfterViewInit 
                     return plan;
                 })
             );
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     }
 }

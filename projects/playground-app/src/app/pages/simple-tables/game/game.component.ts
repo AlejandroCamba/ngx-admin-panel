@@ -5,7 +5,7 @@ import { ApiService } from '../../../http/services/api.service';
 import { MultiSelComponent } from './multisel.component';
 @Component({
     selector: 'game-table',
-    template: `<admin-table></admin-table>`,
+    template: `<ngx-admin-table></ngx-admin-table>`,
 })
 export class GameComponent extends AdminTableComponent implements AfterViewInit {
     constructor(private apiService: ApiService) {
@@ -13,9 +13,11 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
     }
 
     onDeleteConfirm = ({ data: { id }, confirm }) => {
-        console.log(event);
         if (window.confirm('Are you sure you want to delete?')) {
-            this.apiService.delete(`game/${id}`).subscribe((response) => {});
+            this.loadingOn();
+            this.apiService.delete(`game/${id}`).subscribe(() => {
+                this.handleSuccessReq('Game deleted successfully');
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
             confirm.resolve();
         } else {
             confirm.reject();
@@ -25,30 +27,29 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
     onCreateConfirm = (event) => {
         if (window.confirm('Are you sure you want to create?')) {
             delete event.newData.id;
+            this.loadingOn();
             this.apiService.post(`game`, event.newData).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('Game created successfully');
                 event.confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             event.confirm.reject();
         }
     }
 
     onSaveConfirm = ({ newData, confirm }) => {
-        console.log('newdata', newData);
         if (newData.removePlan === '') {
             newData.removePlan = [];
         }
 
         if (window.confirm('Are you sure you want to update?')) {
             const dataCopy = { ...newData };
-            console.log('newdata', newData);
+            this.loadingOn();
             delete dataCopy.id;
-            console.log('data copy', dataCopy);
             this.apiService.put(`game/${newData.id}`, dataCopy).subscribe((response) => {
-                console.log(response);
+                this.handleSuccessReq('Game updated successfully');
                 confirm.resolve();
-            });
+            }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
         } else {
             confirm.reject();
         }
@@ -81,7 +82,7 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
         });
 
         this.apiService.get('game').subscribe((games) => {
-            console.log(games);
+            this.loadingOff();
             this.loadDataSource(
                 games.map((game) => {
                     delete game.createdAt;
@@ -90,6 +91,6 @@ export class GameComponent extends AdminTableComponent implements AfterViewInit 
                     return game;
                 })
             );
-        });
+        }, (err) => this.handleErrorReq(err.message), () => this.loadingOff());
     }
 }

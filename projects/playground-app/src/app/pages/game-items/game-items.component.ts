@@ -70,7 +70,7 @@ export class GameItemsComponent extends AdminTableComponent implements AfterView
                 id: relation.id,
                 name: `${relation.game.name} ${relation.gameConsole.name} ${relation.gameServer.name}`,
             }));
-        });
+        },  (err) => { console.log(err); this.handleErrorReq(err.message); this.loadingOff() });
 
         this.selectionSubscriber$
             .asObservable()
@@ -91,9 +91,10 @@ export class GameItemsComponent extends AdminTableComponent implements AfterView
                     })
                 );
 
+
                 this.cdr.markForCheck();
                 this.cdr.detectChanges();
-            });
+            }, (err) => { console.log(err); this.handleErrorReq(err.message) }, () => this.loadingOff());
 
         this.setTitle('Game Items');
 
@@ -133,10 +134,11 @@ export class GameItemsComponent extends AdminTableComponent implements AfterView
                     type: 'string',
                 },
             });
-        });
+        },  (err) => { console.log(err); this.handleErrorReq(err.message) }, () => this.loadingOff());
     }
 
     changeOption(event) {
+        this.loadingOn();
         this.selectionSubscriber$.next(event);
     }
 }
