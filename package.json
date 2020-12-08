@@ -8,7 +8,9 @@
     ]
   },
   "release": {
-    "branches": ["master"]
+    "branches": [
+      "master"
+    ]
   },
   "scripts": {
     "ng": "ng",
@@ -18,11 +20,12 @@
     "lint": "ng lint --fix",
     "e2e": "ng e2e",
     "build-all": "ng build @ngx-admin-panel/core && npm run copy-core-definitions && ng build @ngx-admin-panel/components && npm run copy-components-definitions",
-    "build-core": "ng build @ngx-admin-panel/core && npm run copy-core-definitions",
-    "build-components": "ng build @ngx-admin-panel/components && npm run copy-components-definitions",
+    "build-core": "ng build @ngx-admin-panel/core --watch && npm run copy-core-definitions",
+    "build-components": "ng build @ngx-admin-panel/components --watch && npm run copy-components-definitions",
     "copy-core-definitions": "cpx \"projects/admin-panel/core/types/**/*.d.ts\" \"dist/admin-panel/core/types/\"",
     "copy-components-definitions": "cpx \"projects/admin-panel/components/types/**/*.d.ts\" \"dist/admin-panel/components/types\"",
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -c jsdoc.json",
+      "commit": "cz"
   },
   "private": true,
   "dependencies": {
@@ -70,6 +73,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "commitizen": "^4.2.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jsdoc": "^3.6.4",

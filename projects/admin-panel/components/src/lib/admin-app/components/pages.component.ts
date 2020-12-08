@@ -21,6 +21,7 @@ export class PagesComponent implements AfterViewInit {
     ) {}
 
     ngAfterViewInit() {
-      this.adminApp.dispatchTest(this.tabContent);
+        console.log('[pages.component.ts]: Emitting container ')
+        this.adminApp.fictionalRouterOutlet(this.tabContent);
     }
 }

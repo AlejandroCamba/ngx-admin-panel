@@ -68,26 +68,28 @@ export class AppComponent extends AdminApp implements AfterViewInit {
         this.registerRoute('/pages/simple-tables', { component: SimpleTablesComponent });
         this.registerRoute('/pages/upload-prices', { component: UploadPricesComponent });
         this.registerRoute('/pages/upload-items', { component: UploadItemsComponent });
-        this.registerRoute('/auth/login', {
-            component: LoginComponent,
-            loginRoute: true,
-            instance: {
-                username: {
-                    labelName: 'Username',
-                    controlName: 'username',
-                },
-                password: {
-                    labelName: 'Password',
-                    controlName: 'password',
-                }
-            }
-        });
+        // this.registerRoute('/auth/login', {
+        //     component: LoginComponent,
+        //     loginRoute: true,
+        //     instance: {
+        //         username: {
+        //             labelName: 'Username',
+        //             controlName: 'username',
+        //         },
+        //         password: {
+        //             labelName: 'Password',
+        //             controlName: 'password',
+        //         }
+        //     }
+        // });
         
         // this.registerRoute('/pages/orders', OrdersTableComponent);
         // this.registerRoute('/pages/payments', PaymentsTableComponent);
-        this.build({
-            enableAuthentication: true,
-        });
+        // this.build({
+        //     enableAuthentication: true,
+        // });
+
+        this.build();
 
         // this.addMenuItem([{
         //     title: 'page 2',

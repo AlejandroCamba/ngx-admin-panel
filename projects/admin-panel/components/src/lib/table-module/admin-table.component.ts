@@ -31,4 +31,21 @@ export abstract class AdminTableComponent {
   setTitle = (title) => {
     this.tableComponent.title = title;
   }
+
+  loadingOff = () => {
+    this.tableComponent.loading = false;
+  }
+
+  loadingOn = () => {
+    this.tableComponent.loading = true;
+  }
+
+  handleSuccessReq(msg: string) {
+    this.tableComponent.showToast('success', msg);
+  }
+
+  handleErrorReq(msg: string) {
+    this.tableComponent.showToast('danger', msg);
+  }
+  
 }

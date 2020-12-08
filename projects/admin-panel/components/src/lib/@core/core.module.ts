@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -107,21 +107,27 @@ export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
-
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        baseEndpoint: '{{base}}',
+        login: {
+          endpoint: '{{loginEndpoint}}',
+        },         
+        logout: {
+          endpoint: '{{logoutEndpoint}}',
+          method: 'post',
+          redirect: {
+            success: '/auth/login',
+            failure: null,
+          },
+        },
+         token: {
+           class: NbAuthJWTToken,
+           key: 'token'
+         }
       }),
-    ],
-    forms: {
-      login: {
-        socialLinks,
-      },
-      register: {
-        socialLinks,
-      },
-    },
+    ]
   }).providers,
 
   NbSecurityModule.forRoot({

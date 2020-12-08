@@ -42,3 +42,11 @@ export * from './lib/admin-app/services/lazy-load.service';
 export * from './lib/admin-app/admin-app-routing.module';
 export * from './lib/admin-app/admin-app.component';
 export * from './lib/admin-app/components/pages.component';
+
+
+
+
+// export auth
+
+export * from './lib/admin-auth/admin-auth.module';
+export * from './lib/admin-auth/login/login.component';
