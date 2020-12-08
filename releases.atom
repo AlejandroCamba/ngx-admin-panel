@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/AlejandroCamba/ngx-admin-panel/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases.atom"/>
+  <title>Release notes from ngx-admin-panel</title>
+  <updated>2020-12-08T10:11:18-04:00</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/245870242/v1.1.1</id>
+    <updated>2020-12-08T10:16:06-04:00</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases/tag/v1.1.1"/>
+    <title>v1.1.1</title>
+    <content type="html">&lt;h2&gt;&lt;a href=&quot;https://github.com/AlejandroCamba/ngx-admin-panel/compare/v1.1.0...v1.1.1&quot;&gt;1.1.1&lt;/a&gt; (2020-12-08)&lt;/h2&gt;
+&lt;h3&gt;Bug Fixes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;fixed error causing redirection to auth screen when authentication is disabled (&lt;a href=&quot;https://github.com/AlejandroCamba/ngx-admin-panel/commit/1aebbf6fd21ec582e75e1037882bdfacf94dd1f6&quot;&gt;1aebbf6&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>github-actions[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/in/15368?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/245870242/v1.1.0</id>
+    <updated>2020-12-08T06:23:19-04:00</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases/tag/v1.1.0"/>
+    <title>v1.1.0</title>
+    <content type="html">&lt;h1&gt;&lt;a href=&quot;https://github.com/AlejandroCamba/ngx-admin-panel/compare/v1.0.0...v1.1.0&quot;&gt;1.1.0&lt;/a&gt; (2020-12-08)&lt;/h1&gt;
+&lt;h3&gt;Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable or disable login page and protect routes if authentication is enabled. Provide login endpoint information via environment.ts. Logout button. (&lt;a href=&quot;https://github.com/AlejandroCamba/ngx-admin-panel/commit/e7b7df03c5f8d0267750076d12600ceb0f144258&quot;&gt;e7b7df0&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Performance Improvements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;improved error handling capabilities and feedback on actions performed on tables (&lt;a href=&quot;https://github.com/AlejandroCamba/ngx-admin-panel/commit/5ae73543287f0cae01b64c45ab4144442fea437b&quot;&gt;5ae7354&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>github-actions[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/in/15368?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/245870242/v1.0.0</id>
+    <updated>2020-11-04T15:59:13-04:00</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases/tag/v1.0.0"/>
+    <title>v1.0.0</title>
+    <content type="html">&lt;h1&gt;1.0.0 (2020-11-04)&lt;/h1&gt;
+&lt;h3&gt;Bug Fixes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;semantic-version:&lt;/strong&gt; setting up auto update in semantic versioning (&lt;a href=&quot;https://github.com/AlejandroCamba/admin-panel/commit/f496dc1f385e2dede8ccb1945f6f4394bbf0519d&quot;&gt;f496dc1&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>github-actions[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/in/15368?s=60&amp;v=4"/>
+  </entry>
+</feed>
