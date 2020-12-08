@@ -2,9 +2,9 @@
 title: Change Log
 ---
 
-<p>Subscribe with <a href="{{ site.baseurl }}/releases.atom">RSS</a> to keep up with the latest changes.</p>
+<p>Subscribe with <a href="{{ site.baseurl }}/feed.xml">RSS</a> to keep up with the latest changes.</p>
 
-<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Update Change Log</a></p>
+<!-- <p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Update Change Log</a></p>
 
 <div class="changelog">
 	{% for change in site.posts %}
@@ -17,4 +17,48 @@ title: Change Log
 			<p class="editor-link"><a href="cloudcannon:collections/{{ change.path }}" class="btn"><strong>&#9998;</strong> Update Entry</a></p>
 		</div>
 	{% endfor %}
-</div>
+</div> -->
+
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text" xml:lang="en">@ngx-admin-panel</title>
+  <link type="application/atom+xml" href="https://github.com/AlejandroCamba/ngx-admin-panel/releases.atom" rel="self"/>
+  <link type="text/html" href="https://github.com/AlejandroCamba/ngx-admin-panel/" rel="alternate"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>https://github.com/AlejandroCamba/ngx-admin-panel/feed_all</id>
+  <author>
+    <name>Alejandro Camba</name>
+  </author>
+  <rights>Copyright (c) 2020, Alejandro Camba; all rights reserved.</rights>
+
+  {% for post in site.posts limit:20 %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="https://github.com/AlejandroCamba/ngx-admin-panel{{ post.url }}"/>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>https://github.com/AlejandroCamba/ngx-admin-panel{{ post.id }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed> -->
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>{{site.title}}</title>
+	<id>https://{{site.domain}}/</id>
+	<updated>{{site.time | date_to_xmlschema}}</updated>
+	<link href="http://{{site.domain}}/releases.atom" rel="self"/>
+	
+	{% for post in site.posts %}
+	<entry>
+		<title>{{post.title}}</title>
+		<author><name>{{post.author}}</name></author>
+		<id>http://{{site.domain}}/{{post.id}}</id>
+		<updated>{{post.date | date_to_xmlschema}}</updated>
+		<content type="html">{{post.content | xml_escape}}</content>
+	</entry>
+	{% endfor %}
+ 
+ </feed>
