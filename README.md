@@ -1,3 +1,9 @@
+<p align="center">
+	<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/AlejandroCamba/ngx-admin-panel?style=plastic">
+	<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/AlejandroCamba/ngx-admin-panel/Test%20and%20Release">
+	<img alt="GitHub" src="https://img.shields.io/github/license/AlejandroCamba/ngx-admin-panel">
+</p>
+
 # Angular Admin Panel Generator
 
 This document contains development information to reproduce the project locally, for usage documentation go to [the documentation site](https://alejandrocamba.github.io/ngx-admin-panel/)
