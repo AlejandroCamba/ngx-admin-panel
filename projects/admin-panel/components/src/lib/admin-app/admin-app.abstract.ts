@@ -131,11 +131,13 @@ export abstract class AdminApp {
             resolve<AdminAppComponent>(this.resolver, AdminAppComponent)
         );
 
-        this.nbAuth.onAuthenticationChange().subscribe((status) => {
-            if (status === false) {
-                this.router.navigate(['/auth/login'])
-            }
-        })
+        if (enableAuthentication) {
+            this.nbAuth.onAuthenticationChange().subscribe((status) => {
+                if (status === false) {
+                    this.router.navigate(['/auth/login'])
+                }
+            })
+        }
 
         this.appInstance = this.appRef.instance;
         this.appInstance.menu = this.adminMain.menuItems;
