@@ -4,7 +4,20 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api/'
+  apiUrl: 'http://localhost:3000/api/',
+  endpoints: {
+    login: {
+      path: 'auth/login',
+      body: {
+        email: 'username',
+        password: 'password'
+      }
+    },
+    logout: {
+      path: 'auth/logout'
+    },
+    widthCredentials: true
+  }
 };
 
 /*

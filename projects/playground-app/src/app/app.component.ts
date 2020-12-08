@@ -1,33 +1,30 @@
-import { Component, OnInit, AfterViewInit, ComponentFactoryResolver, ChangeDetectionStrategy } from '@angular/core';
-import { AdminApp, AdminMainDirective, LazyLoaderService } from '@ngx-admin-panel/components';
+import { Component, AfterViewInit } from '@angular/core';
+import { AdminApp, LoginComponent } from '@ngx-admin-panel/components';
 import { NbMenuItem } from '@nebular/theme';
-import { Router } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import {UsersTableComponent} from './pages/users/users.component';
-import { BlockComponent } from 'dist/admin-panel/core/public-api';
+import { UsersTableComponent } from './pages/users/users.component';
 import { SimpleTablesComponent } from './pages/simple-tables/simple-tables.component';
 import { GameItemsComponent } from './pages/game-items/game-items.component';
 import { UploadPricesComponent } from './pages/upload-prices/upload-prices.component';
 import { UploadItemsComponent } from './pages/upload-items/upload-items.component';
-import { OrdersTableComponent } from './pages/orders/orders.component';
-import { PaymentsTableComponent } from './pages/payments/payments.component';
+
+// import { LoginComponent } from './admin-auth/login/login.component';
 
 const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Dashboard',
         link: 'pages/dashboard',
-        icon: 'home-outline'
+        icon: 'home-outline',
     },
     {
         title: 'Users',
         link: 'pages/users',
-        icon: 'person-outline'
+        icon: 'person-outline',
     },
     {
         title: 'Game Items',
         link: 'pages/game-items',
-        icon: 'pricetags-outline'
+        icon: 'pricetags-outline',
     },
     {
         icon: 'layout-outline',
@@ -65,15 +62,32 @@ export class AppComponent extends AdminApp implements AfterViewInit {
     public menu = MENU_ITEMS;
 
     ngAfterViewInit() {
-        this.registerRoute('/pages/dashboard', PagesComponent);
-        this.registerRoute('/pages/game-items', GameItemsComponent);
-        this.registerRoute('/pages/users', UsersTableComponent);
-        this.registerRoute('/pages/simple-tables', SimpleTablesComponent);
-        this.registerRoute('/pages/upload-prices', UploadPricesComponent);
-        this.registerRoute('/pages/upload-items', UploadItemsComponent);
+        this.registerRoute('/pages/dashboard', { component: PagesComponent });
+        this.registerRoute('/pages/game-items', { component: GameItemsComponent });
+        this.registerRoute('/pages/users', { component: UsersTableComponent });
+        this.registerRoute('/pages/simple-tables', { component: SimpleTablesComponent });
+        this.registerRoute('/pages/upload-prices', { component: UploadPricesComponent });
+        this.registerRoute('/pages/upload-items', { component: UploadItemsComponent });
+        this.registerRoute('/auth/login', {
+            component: LoginComponent,
+            loginRoute: true,
+            instance: {
+                username: {
+                    labelName: 'Username',
+                    controlName: 'username',
+                },
+                password: {
+                    labelName: 'Password',
+                    controlName: 'password',
+                }
+            }
+        });
+        
         // this.registerRoute('/pages/orders', OrdersTableComponent);
         // this.registerRoute('/pages/payments', PaymentsTableComponent);
-        this.build();
+        this.build({
+            enableAuthentication: true,
+        });
 
         // this.addMenuItem([{
         //     title: 'page 2',

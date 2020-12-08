@@ -3,7 +3,7 @@ import { NgModule, Injectable } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { TabsModule, TableModule } from '@ngx-admin-panel/components';
+import { TabsModule, TableModule, LoginComponent } from '@ngx-admin-panel/components';
 import { BlockModule } from '@ngx-admin-panel/core';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,7 @@ import {
     NbInputModule,
     NbButtonModule,
     NbAlertModule,
+    NbCheckboxModule,
 } from '@nebular/theme';
 import { UsersTableComponent } from './pages/users/users.component';
 import { ConsoleComponent } from './pages/simple-tables/console/console.component';
@@ -44,6 +45,9 @@ import { UploadPricesTableLayout } from './pages/upload-prices/layout/layout.com
 import { OrdersTableLayout } from './pages/orders/layout/layout.component';
 import { PaymentsTableComponent } from './pages/payments/payments.component';
 import { PaymentTableLayout } from './pages/payments/layout/layout.component';
+import { environment } from '../environments/environment';
+// import { LoginComponent } from './admin-auth/login/login.component';
+
 
 @NgModule({
     declarations: [
@@ -77,7 +81,7 @@ import { PaymentTableLayout } from './pages/payments/layout/layout.component';
         BlockModule,
         TabsModule,
         BrowserModule,
-        AdminAppModule,
+        AdminAppModule.forRoot(environment),
         PagesModule,
         Ng2SmartTableModule, // NECESARIO PARA SMART TABLES
         NbCardModule, // NECESARIO PARA SMART TABLES
@@ -100,7 +104,7 @@ import { PaymentTableLayout } from './pages/payments/layout/layout.component';
         SimpleTablesComponent,
         OrdersTableComponent,
         PaymentsTableComponent,
-        MultiSelComponent,
+        MultiSelComponent
     ],
     providers: [LazyLoaderService],
     bootstrap: [AppComponent],
