@@ -6,7 +6,7 @@ layout: null
 const date = entry => new Date(t(entry, 'updated').textContent).toDateString();
 const content = entry => t(entry, 'content')
 
-fetch('https://github.com/AlejandroCamba/ngx-admin-panel/releases.atom')
+fetch('https://cors-anywhere.herokuapp.com/https://github.com/AlejandroCamba/ngx-admin-panel/releases.atom')
   .then(response => response.text())
   .then(xml => {
   const parser = new DOMParser();
